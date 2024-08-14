@@ -280,6 +280,8 @@ export interface SessionDTO {
   sessionName: string;
   startDate: Date;
   endDate: Date;
+  availablE_STATUS :string; 
+
   
 }
 export interface ReservationDate3 {

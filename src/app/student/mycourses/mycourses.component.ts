@@ -240,11 +240,12 @@ getReservationsByUserId(): void {
 }
 */
 
-import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from "@angular/core";
+import { Component, ElementRef, Input, OnInit, TemplateRef, ViewChild } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
 import { CertificateService } from "src/app/Services/certificate.service";
 import { ReservationDate4, StudentService } from "src/app/Services/student.service";
 import { CreatereviewComponent } from "../createreview/createreview.component";
+import { MatDialog } from "@angular/material/dialog";
 
 @Component({
   selector: 'app-mycourses',
@@ -257,8 +258,12 @@ export class MycoursesComponent implements OnInit {
   courseDetailsMap: Map<number, string> = new Map(); 
   @ViewChild('canvas', { static: false }) canvas!: ElementRef<HTMLCanvasElement>;
   @ViewChild('openRDialog') callReviewDailog!: TemplateRef<any>; 
-  dialog: any;
-  constructor(public s :StudentService , public certificateService :CertificateService , private toastr:ToastrService){}
+  //dialog: any;
+
+    @Input() course: any;
+  userId = Number(localStorage.getItem('Id'));
+  reservations: any[] = [];
+  constructor( public dialog: MatDialog ,public s :StudentService , public certificateService :CertificateService , private toastr:ToastrService){}
   ngOnInit(): void {
     this.s.getallreservationstd3();
   }

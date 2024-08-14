@@ -60,3 +60,17 @@ button.pending {
     background-color: #FFC107;
     color: white;
 }
+.strikethrough {
+    text-decoration: line-through;
+    color: rgb(240, 123, 14);
+     font-weight: bold;
+     height: 8px; 
+     top: 50%;
+     left: 0;
+     width: 100%;
+  }
+
+  .bg-orange {
+    background-color: rgb(196, 183, 183);
+  }
+  

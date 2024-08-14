@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>Create Review </h2>
+<!-- <h2 mat-dialog-title>Create Review </h2>
 <mat-dialog-content class="mat-typography">
     <form class="example-form" [formGroup]="createReviewForm">
         <mat-form-field class="example-full-width">
@@ -22,4 +22,31 @@
   <button mat-button mat-dialog-close>Cancel</button>
   <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="studentService.createReview(createReviewForm.value)">Create</button>
 </mat-dialog-actions>
+ -->
 
+ <h2 mat-dialog-title>Create Review </h2>
+ <mat-dialog-content class="mat-typography">
+     <form class="example-form" [formGroup]="createReviewForm">
+         <mat-form-field class="example-full-width">
+           <mat-label>Message</mat-label>
+           <input type="text" matInput formControlName="message">
+  
+           <mat-error *ngIf="createReviewForm.controls['message'].hasError('required')">
+             message is <strong>required</strong>
+           </mat-error>
+         </mat-form-field>
+         <ng-container *ngIf="false">
+           <mat-form-field class="example-full-width">
+             <input type="text" matInput formControlName="course_Id">
+           </mat-form-field>
+         </ng-container>
+  
+       </form>
+      
+  
+ </mat-dialog-content>
+ <mat-dialog-actions align="end">
+   <button mat-button mat-dialog-close>Cancel</button>
+   <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="studentService.createReview(createReviewForm.value)">Create</button>
+ </mat-dialog-actions>
+  
