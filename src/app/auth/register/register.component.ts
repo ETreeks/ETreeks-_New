@@ -18,6 +18,7 @@ export class RegisterComponent {
     Lname: new FormControl('',Validators.required),
     Certificate : new FormControl('',Validators.required),
     Specialization : new FormControl('',Validators.required),
+    Email : new FormControl('',Validators.required),
     repeatPassword: new  FormControl('',[Validators.minLength(8),Validators.required])
   }
 )

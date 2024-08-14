@@ -31,6 +31,11 @@
                   <input type="text" class="form-control" id="exampleInputtext1" formControlName="Specialization" aria-describedby="textHelp">
                   <span class="text-danger" *ngIf="CoachRegisterForm.controls['Specialization'].hasError('required')">Your Specialization is required</span>
                 </div>
+                <div class="mb-3">
+                  <label for="exampleInputtext1" class="form-label">Email</label>
+                  <input type="text" class="form-control" id="exampleInputtext1" formControlName="Email" aria-describedby="textHelp">
+                  <span class="text-danger" *ngIf="CoachRegisterForm.controls['Email'].hasError('required')">Your Email is required</span>
+                </div>
                 <div class="mb-4">
                   <label for="exampleInputPassword1" class="form-label">Password</label>
                   <input type="password" class="form-control" id="exampleInputPassword1" formControlName="Password">
