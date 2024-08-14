@@ -64,7 +64,7 @@ getallreservationstd3() {
   const trainerId = Number(localStorage.getItem('Id'));
 
   this.http.get<ReservationDate4[]>('https://localhost:7281/api/Reservation/ReservationDate4').subscribe((res: any) => {
-    // Filter the reservations based on cid matching the trainerId
+    // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     this.RD = res.filter((reservation: any) => reservation.cid === trainerId);
 
     console.log('Filtered Reservations:', this.RD);
