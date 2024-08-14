@@ -63,10 +63,8 @@ RD: any[] = [];
 getallreservationstd3() {
   const trainerId = Number(localStorage.getItem('Id'));
 
-  this.http.get<ReservationDate4[]>('https://localhost:7281/api/Reservation/ReservationDate4').subscribe((res: any) => {
-    // XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    this.RD = res.filter((reservation: any) => reservation.cid === trainerId);
-
+  this.http.get<ReservationDate2[]>('https://localhost:7281/api/Trainer/GetAllReservationT1000/'+ trainerId).subscribe((res: any) => {
+    this.RD=res; 
     console.log('Filtered Reservations:', this.RD);
   }, err => {
     console.log('Error:', err);
