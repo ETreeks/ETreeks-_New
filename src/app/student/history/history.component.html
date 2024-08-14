@@ -1,0 +1,48 @@
+
+
+<app-studentnavbar></app-studentnavbar>
+<div class="container">
+<h2>Review History</h2>
+<table class="table">
+  <thead>
+    <tr>
+   
+      <th>Message</th>
+
+      <th>review Date</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let review of AllReviewH">
+     
+      <td>{{ review.message }}</td>
+      <td>{{ review.reviewdate }}</td>
+  
+    </tr>
+  </tbody>
+</table>
+
+<h2>Testimonial History</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Testimonials Text</th>
+      <th>Testimonial Status</th>
+   
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let test of AllTestH">
+
+      <td>{{ test.testimonialstext }}</td>
+      <td>{{ test.testimonialsstatus }}</td>
+    
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+<app-footer></app-footer>
+

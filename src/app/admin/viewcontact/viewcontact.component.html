@@ -1,0 +1,77 @@
+<app-sidebar></app-sidebar>
+
+
+
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="body-wrapper">
+    <div class="container-fluid">
+    <div class="row">
+      
+        <div class="card w-100">
+          <div class="card-body p-4">
+            <h6 class="card-title fw-semibold mb-4">View All Contacts</h6>
+            <div class="table-responsive">
+              <table class="table text-nowrap mb-0 align-middle">
+                <thead class="text-dark fs-4">
+                  <tr>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Name</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Message</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Subject</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Email</h6>
+                    </th>
+                    <th>
+                        Operation
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of admincontact.viewcontactobj">
+                    <td class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">
+                       {{user.name}} 
+                      </h6>
+                    </td>
+                    <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{user.message}}</h5></td>
+                    <td class="border-bottom-0"><h5 class="fw-semibold mb-1">{{user.subject}}</h5></td>
+                    <td class="border-bottom-0"><h5 class="fw-semibold mb-1">{{user.email1}}</h5></td>
+               
+                    <!-- <td>
+                        <button (click)="admincontact.DeleteContact(user.id)"> Delete </button>
+                    </td> -->
+                    <td>
+                      <button class="btn delete-button " (click)="openDeleteDailog(user.id)"> Delete </button>
+                  </td>
+                  </tr>
+                
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+    
+    </div>
+    
+    </div>
+  </div>
+</div>
+
+<ng-template #deleteDailog>          
+  <h1 mat-dialog-title>Delete Contact</h1>
+  <div mat-dialog-content>
+    Would you like to delete this contact?
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close="no">No</button>
+    <button mat-button mat-dialog-close="yes" cdkFocusInitial>Yes</button>
+  </div></ng-template> 
+

@@ -1,0 +1,64 @@
+
+
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+data-sidebar-position="fixed" data-header-position="fixed">
+<div
+  class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+  <div class="d-flex align-items-center justify-content-center w-100">
+    <div class="row justify-content-center w-100">
+      <div class="col-md-8 col-lg-6 col-xxl-3">
+        <div class="card mb-0">
+          <div class="card-body">
+              <img src="../../../assets/AdminTemp/images/logos/logo.png" width="180" alt="">
+            <p class="text-center">Login</p>
+                <form (ngSubmit)="onSubmit()">
+              <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+
+                 <input type="email" class="form-control"  aria-describedby="emailHelp"
+                 type="text" id="username"  name="username" [formControl]="username">
+                 <span class="text-danger" *ngIf="username.hasError('required')">Your Username is required</span>
+                </div>
+              <div class="mb-4">
+                <label for="password" class="form-label">Password</label>
+
+                <input type="password" class="form-control" id="password"  name="password" [formControl]="password">
+              
+                <span class="text-danger" *ngIf="password.hasError('required')">Password is required</span>
+
+              </div>
+              <div class="d-flex align-items-center justify-content-between mb-4">
+                <div class="form-check">
+            
+                  <label>
+                    <input class="form-check-label text-dark" 
+                      type="checkbox"  [(ngModel)]="rememberMe"  
+                    name="rememberMe"  (change)="onRememberMeChange($event)"> 
+                    Remember me
+                </label>
+                </div>
+                <a class="text-primary fw-bold" >Forgot Password ?</a>
+              </div>
+ 
+              <button type="submit" 
+              class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" 
+              (click)="submit()">Login</button>
+              <div class="d-flex align-items-center justify-content-center">
+              
+                <a class="text-primary fw-bold ms-2" routerLink= "/auth/register">Create an account for coach</a>
+              </div>
+              <div class="d-flex align-items-center justify-content-center">
+                <a class="text-primary fw-bold ms-2" routerLink= "/auth/studentregister">Create an account for student</a>
+              </div>
+              <div class="d-flex align-items-center justify-content-center">
+                <a class="text-primary fw-bold ms-2" routerLink= "">Go back</a>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

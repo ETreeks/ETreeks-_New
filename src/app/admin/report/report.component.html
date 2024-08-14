@@ -1,0 +1,87 @@
+<app-sidebar></app-sidebar>
+
+ <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+     <div class="body-wrapper">
+         <div class="container-fluid">
+             <div class="filter-container">
+                 <form (ngSubmit)="onSearch()">
+                     <label for="startDate">Start Date:</label>
+                     <input type="date" id="startDate" [(ngModel)]="startDate" name="startDate" class="form-control mb-3">
+ 
+                     <label for="endDate">End Date:</label>
+                     <input type="date" id="endDate" [(ngModel)]="endDate" name="endDate" class="form-control mb-3">
+ 
+                  <div class="d-flex justify-content-between">
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-space">Search</button>
+                        <button type="button" (click)="clearForm()" class="btn btn-secondary btn-space">Clear</button>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-primary mt-4 btn-space" (click)="generatePdf()"> Generate Report </button>
+                    </div>
+                </div>
+                
+                    </form>
+             </div>
+ <hr>
+    
+                 <div class="card w-100">
+                     <div class="card-body p-6">
+                         <h5 class="card-title fw-semibold mb-6">All Reservation</h5>
+                         <div class="table-responsive">
+                             <table class="table text-nowrap mb-0 align-middle" id="example">
+                                 <thead class="text-dark fs-6">
+                                     <tr>
+                                         <th class="border-bottom-0" style="width: 10%;">
+                                             <h6 class="fw-semibold mb-0">Full Name</h6>
+                                         </th>
+                                         <th class="border-bottom-0" style="width: 30%;">
+                                             <h6 class="fw-semibold mb-0">Course Name</h6>
+                                         </th>
+                                         <th class="border-bottom-0" style="width: 20%;">
+                                             <h6 class="fw-semibold mb-0">Session Name</h6>
+                                         </th>
+                                         <th class="border-bottom-0" style="width: 20%;">
+                                            <h6 class="fw-semibold mb-0">Final Mark</h6>
+                                        </th>
+                                        <th class="border-bottom-0" style="width: 20%;">
+                                            <h6 class="fw-semibold mb-0">Completed Status</h6>
+                                        </th>
+                                         <th class="border-bottom-0" style="width: 30%;">
+                                             <h6 class="fw-semibold mb-0">Reservation Date</h6>
+                                         </th>
+                                     </tr>
+                                 </thead>
+                                 <tbody>
+                                     <tr *ngFor="let reservation2 of filteredReservations2">
+                                         <td class="border-bottom-0">
+                                             <h5 class="fw-semibold mb-0">{{ reservation2.user_Full_Name }}</h5>
+                                         </td>
+                                         <td class="border-bottom-0">
+                                             <h5 class="fw-semibold mb-0">{{ reservation2.course_Name }}</h5>
+                                         </td>
+                                         <td class="border-bottom-0">
+                                             <h5 class="fw-semibold mb-0">{{ reservation2.session_Name }}</h5>
+                                         </td>
+                                         <td class="border-bottom-0">
+                                            <h5 class="fw-semibold mb-0">{{ reservation2.final_Mark }}</h5>
+                                        </td>
+                                        <td class="border-bottom-0">
+                                            <h5 class="fw-semibold mb-0">{{ reservation2.completed_Status }}</h5>
+                                        </td>
+                                         <td class="border-bottom-0">
+                                             <h5 class="fw-semibold mb-0">{{ reservation2.reservation_Date | date:'short' }}</h5>
+                                         </td>
+                                     </tr>
+                                 </tbody>
+                             </table>
+                         </div>
+ 
+                     </div>
+                 </div>
+             </div>
+   
+     </div>
+ </div>
+ 

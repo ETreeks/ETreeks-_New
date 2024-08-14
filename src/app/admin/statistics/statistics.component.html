@@ -1,0 +1,290 @@
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="body-wrapper">
+    <div class="container-fluid">
+    <!-- Row 1 -->
+    <div class="row">
+      <div class="col-md-3">
+        <h5 class="card-title fw-semibold mb-4"></h5>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Number Of Registered Trainers</h5>
+          <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+            <p class="card-text">{{admin.numtrainers}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <h5 class="card-title fw-semibold mb-4"></h5>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Number Of Registered Student</h5>
+          <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+            <p class="card-text">{{admin.numstudents}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <h5 class="card-title fw-semibold mb-4"></h5>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Number Of All Users</h5>
+          <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+            <p class="card-text">{{admin.numallusers}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="row">
+      <div class="col-md-3">
+        <h5 class="card-title fw-semibold mb-4"></h5>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Number Admin</h5>
+          <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+            <p class="card-text">{{admin.numadmin}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <h5 class="card-title fw-semibold mb-4"></h5>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Count Pending Trainers</h5>
+          <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+            <p class="card-text">{{admin.countPendingTrainers}}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <h5 class="card-title fw-semibold mb-4"></h5>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Count Accepted Trainers</h5>
+          <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+            <p class="card-text">{{admin.countAcceptedTrainers}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <!-- Row 3 -->
+        <div class="row">
+            <div class="col-md-3">
+              <h5 class="card-title fw-semibold mb-4"></h5>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Count Categories</h5>
+                <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+                  <p class="card-text">{{admin.CountCategories}}</p>
+                </div>
+              </div>
+            </div>
+      
+            <div class="col-md-3">
+              <h5 class="card-title fw-semibold mb-4"></h5>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Count Courses</h5>
+                <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+                  <p class="card-text">{{admin.CountCourses}}</p>
+                </div>
+              </div>
+            </div>
+      
+            <div class="col-md-3">
+              <h5 class="card-title fw-semibold mb-4"></h5>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Count Pending Reservation</h5>
+                <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+                  <p class="card-text">{{admin.CountPendingReservation}}</p>
+                </div>
+              </div>
+
+
+          </div>
+
+ <!-- Row 4 -->
+  <!-- <div class="row"> -->
+    
+    <!-- <div class="col-md-6">
+      <h5 class="card-title fw-semibold mb-4"></h5>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Total Students Per Trainer</h5>
+          <table class="table text-nowrap mb-0 align-middle">
+            <thead class="text-dark fs-4">
+              <tr>
+                <th class="border-bottom-0">
+                  <h6 class="fw-semibold mb-0">Trainer Username</h6>
+                </th>
+                <th class="border-bottom-0">
+                  <h6 class="fw-semibold mb-0">Student Count</h6>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item2 of admin.stdpert">
+                <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{item2.trainerUsername}}</h6></td>
+                <td class="border-bottom-0">
+                    <h6 class="fw-semibold mb-1">{{item2.studentCount}}</h6>
+                </td>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div> -->
+    
+  
+        
+  <!-- </div> -->
+
+
+
+
+    
+
+  <!-- Row 5 -->
+          <div class="row">
+
+            <!-- <div class="col-md-6">
+                <h5 class="card-title fw-semibold mb-4"></h5>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Total Student In Each Course</h5>
+                    <table class="table text-nowrap mb-0 align-middle">
+                      <thead class="text-dark fs-4">
+                        <tr>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Course Name</h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Student Count</h6>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let obj2 of admin.obj">
+                          <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{obj2.courseName}}</h6></td>
+                          <td class="border-bottom-0">
+                              <h6 class="fw-semibold mb-1">{{obj2.studentCount}}</h6>
+                          </td>
+  
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div> -->
+
+            <div class="col-md-6">
+                <h5 class="card-title fw-semibold mb-4"></h5>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Total Courses In Each Category</h5>
+                    <table class="table text-nowrap mb-0 align-middle">
+                      <thead class="text-dark fs-4">
+                        <tr>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Ctegory Name</h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Course Count</h6>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let item of admin.CIEC">
+                          <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{item.categoryName}}</h6></td>
+                          <td class="border-bottom-0">
+                              <h6 class="fw-semibold mb-1">{{item.courseCount}}</h6>
+                          </td>
+  
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <h5 class="card-title fw-semibold mb-4"></h5>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Count Accepted Reservation</h5>
+                  <!--   <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>-->
+                    <p class="card-text">{{admin.CountAcceptedReservation}}</p>
+                  </div>
+                </div>
+
+          </div>
+
+
+ <!-- Row6 
+<div class="row">
+
+      Students Per Trainer Card
+      <div class="col-md-12">
+        <h5 class="card-title fw-semibold mb-4"></h5>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Students Per Trainer</h5>
+            <table class="table text-nowrap mb-0 align-middle">
+              <thead class="text-dark fs-4">
+                <tr>
+                  <th class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">Trainer Username</h6>
+                  </th>
+                  <th class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">Student Details</h6>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let trainer of admin.studentsPerTrainer">
+                  <td class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">{{trainer.trainerUsername}}</h6>
+                  </td>
+                  <td class="border-bottom-0">
+                    <div *ngFor="let student of trainer.students">
+                      <p><strong>Username:</strong> {{student.studentUsername}}</p>
+                      <p><strong>Email:</strong> {{student.studentEmail}}</p>
+                      <p><strong>Course:</strong> {{student.courseName}}</p>
+                      <p><strong>Completed:</strong> {{student.completed}}</p>
+                      <p><strong>Reservation Date:</strong> {{student.reservationDate}}</p>
+                      <hr>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    
+  
+</div> -->
+      
+          
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</div>

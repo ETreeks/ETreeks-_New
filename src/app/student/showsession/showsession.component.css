@@ -1,0 +1,44 @@
+/* General container styling */
+.container {
+    padding: 20px;
+  }
+  
+  .course-details-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .course-image img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .course-info {
+    padding: 20px;
+  }
+  
+  .course-info h2, .course-info h3, .course-info h4 {
+    margin: 0;
+    padding-bottom: 10px;
+  }
+  
+  .table {
+    margin-bottom: 20px;
+  }
+  
+  .table th, .table td {
+    text-align: left;
+    vertical-align: middle;
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .button-group .btn {
+    flex: 1;
+  }
+  

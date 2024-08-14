@@ -1,0 +1,97 @@
+
+<app-studentnavbar></app-studentnavbar>
+<br>
+<br>
+<div class="container">
+<div class="course-details-card">
+    <div class="course-image">
+      <img class="img-fluid course-image" src="../../../assets/Images/{{courseDetails?.imagename}}">
+    </div>
+    <!-- <div class="course-image">
+        <img [src]="'../../../assets/Images/' + courseDetails.imagename" alt="Course Image">
+      </div> -->
+      <!-- <img class="img-fluid course-image" [src]="'../../../assets/Images/' + (courseDetails?.imagename )"> -->
+
+    <div class="course-info">
+      <h2>{{ courseDetails?.name }}</h2>
+      <p><strong>PassMark:</strong> {{ courseDetails?.passmark }}</p>
+      <p><strong>Created Date:</strong> {{ courseDetails?.createddate }}</p>
+       <p><strong>Category:</strong> {{ selectedCategoryName  }}</p> 
+       <p><strong>Trainer Name:</strong> {{ selectedTrainerName  }}</p> 
+      <h2><strong>Price:</strong> {{ courseDetails?.price }} $</h2>
+      
+      <hr>
+      <div class="course-reviews">
+       <h3>Reviews</h3>
+        <ul *ngIf="reviews.length > 0; else noReviews">
+         <li class="review" *ngFor="let review of reviews">
+         <div class="review-header">
+             <span class="review-author">{{ review.guser_Fname }} {{ review.guser_Lname }}</span>
+             <span class="review-date">{{ review.reviewDate | date }}</span>
+         </div>
+         <div class="review-body">
+             {{ review.message }}
+         </div>
+     </li>
+ </ul>
+
+ <ng-template #noReviews>
+     <p>No reviews available.</p>
+ </ng-template>
+</div>
+      
+     
+      
+      <!-- <button class="btn btn-primary" (click)="Back()">Back</button> -->
+      <button class="btn btn-primary back-button" (click)="Back()" style="margin-right: 10px;">
+        <i class="fas fa-arrow-left"></i> Back
+      </button>
+
+    
+
+        <!-- <button class="btn btn-primary" (click)="openBookDailog(courseDetails.price ,courseDetails.id)">
+          <i class="fas fa-book"></i>
+          Book</button>  -->
+          
+    <button class="btn btn-primary" (click)="ShowSession(courseDetails.id)">
+       Show Session
+    </button>
+      
+    </div>
+  </div>
+  
+</div>
+  
+<app-footer></app-footer>
+
+<ng-template #bookDailog>          
+    <h1 mat-dialog-title>Enrollment </h1>
+    <div mat-dialog-content>
+        Do you want to enrollment in this course?
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close="no">No</button>
+      <button mat-button mat-dialog-close="yes" cdkFocusInitial>Yes</button>
+    </div></ng-template> 
+
+
+    <ng-template #sessionDialog>
+      <h1 mat-dialog-title>Course Sessions</h1>
+      <div mat-dialog-content>
+        <ul *ngIf="ShowS.length > 0; else noSessions">
+          <li *ngFor="let session of ShowS">
+            <p><strong>name:</strong> {{ session.name }}</p>
+            <p><strong>startdate:</strong> {{ session.startdate |  date: 'short'}}  </p>
+            <p><strong>enddate:</strong> {{ session.enddate  |  date: 'short'}} </p>
+          
+          </li>
+        </ul>
+        <ng-template #noSessions>
+          <p>No sessions available for this course.</p>
+        </ng-template>
+      </div>
+      <div mat-dialog-actions>
+        <button mat-button mat-dialog-close>Close</button>
+      </div>
+    </ng-template>
+    

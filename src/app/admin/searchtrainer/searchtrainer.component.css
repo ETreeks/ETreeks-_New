@@ -1,0 +1,99 @@
+/* Ensure sidebar has a fixed width and main content adjusts accordingly */
+app-sidebar {
+  position: fixed;
+  width: 250px; /* Adjust the width as needed */
+  height: 100%;
+  background-color: #f8f9fa; /* Optional: background color for the sidebar */
+  border-right: 1px solid #dee2e6; /* Optional: border for the sidebar */
+}
+
+/* Adjust the main content to account for the sidebar width */
+.main-content {
+  margin-left: 250px; /* Match the width of the sidebar */
+  padding: 20px; /* Add padding around the main content */
+}
+
+/* Container Styling */
+.search-trainer {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header Styling */
+h2 {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  font-weight: 700;
+}
+
+/* Form Styling */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+}
+
+input.form-control {
+  border-radius: 4px;
+  border: 1px solid #ced4da;
+  padding: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.btn-search {
+  font-family: 'Roboto', sans-serif;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.btn-search:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+/* Results Section */
+.results {
+  margin-top: 20px;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th, .table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+.table thead {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.table thead th {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+/* No Results Message */
+.text-center {
+  text-align: center;
+}
+
+.text-center p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: #6c757d;
+}

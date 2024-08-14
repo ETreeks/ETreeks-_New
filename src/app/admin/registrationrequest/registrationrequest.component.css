@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+  }
+  
+  app-sidebar {
+    width: 250px; /* Adjust as needed */
+    background-color: #f4f4f4; /* Example background color */
+    padding: 10px; /* Example padding */
+  }
+  
+  .content {
+    flex: 1;
+    padding: 10px; /* Example padding */
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  

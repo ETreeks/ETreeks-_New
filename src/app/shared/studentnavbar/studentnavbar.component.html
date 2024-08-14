@@ -1,0 +1,139 @@
+
+<div class="container-fluid d-none d-lg-block">
+    <div class="row align-items-center py-4 px-xl-5">
+        <div class="col-lg-3">
+                  <h1 class="m-0" style="font-size: 3em;"><span class="text-primary">E</span>Treeks</h1>
+        </div>
+
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row border-top px-xl-5">
+        <!-- <div class="col-lg-3 d-none d-lg-block">
+          </div> -->
+        <div class="col-lg-9">
+            <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+                <a href="" class="text-decoration-none d-block d-lg-none">
+                  
+                    <h1 class="m-0" style="font-size: 3em;"><span class="text-primary">E</span>Treeks</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <!-- <div class="navbar-nav py-0">
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                Notifications <span *ngIf="notifications2.length > 0" class="badge badge-danger">{{ notifications2.length }}</span>
+                            </a>
+                            <div class="dropdown-menu rounded-0 m-0 dropdown-scroll">
+                                <div *ngIf="notifications2.length > 0; else noNotifications">
+                                    <div *ngFor="let notification of notifications2" class="dropdown-item">
+                                        <p class="notification-message">{{ notification.message }}</p>
+                                    </div>
+                                </div>
+                                <ng-template #noNotifications>
+                                    <a class="dropdown-item">No notifications available.</a>
+                                </ng-template>
+                            </div>
+                        </div>
+                        <a  routerLink="/student/" class="nav-item nav-link active">Home</a>
+                        <span class="nav-item nav-link"></span>
+                        <a routerLink="/student/viewcategory" class="nav-item nav-link">Category</a>
+                        <span class="nav-item nav-link"></span>
+                        <a routerLink="/student/viewcourse" class="nav-item nav-link">Courses</a>
+                        <span class="nav-item nav-link"></span>
+                        <a routerLink="/student/viewteacher"class="nav-item nav-link">Teachers</a>
+                        <span class="nav-item nav-link"></span>
+                        <a routerLink="/student/mycourses"class="nav-item nav-link">My courses</a>
+                        <span class="nav-item nav-link"></span>
+                      <a routerLink="/student/searchsessioncourse"class="nav-item nav-link">Search Session</a>
+                      <span class="nav-item nav-link"></span>
+                      <a routerLink="/student/history" class="nav-item nav-link">History</a>
+                      <span class="nav-item nav-link"></span>
+                      <a routerLink="/student/testimonial" class="nav-item nav-link">Testimonials</a>
+                     
+                      
+                     
+                      </div> -->
+
+
+                      <div class="navbar-nav py-0">
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                Notifications <span *ngIf="notifications2.length > 0" class="badge badge-danger">{{ notifications2.length }}</span>
+                            </a>
+                            <div class="dropdown-menu rounded-0 m-0 dropdown-scroll">
+                                <div *ngIf="notifications2.length > 0; else noNotifications">
+                                    <div *ngFor="let notification of notifications2" class="dropdown-item notification-item">
+                                        <p class="notification-message">{{ notification.message }}</p>
+                                    </div>
+                                </div>
+                                <ng-template #noNotifications>
+                                    <a class="dropdown-item">No notifications available.</a>
+                                </ng-template>
+                            </div>
+                        </div>
+                      
+                        <a routerLink="/student/" class="nav-item nav-link active">Home</a>
+                        <a routerLink="/student/viewcategory" class="nav-item nav-link">Category</a>
+                        <a routerLink="/student/viewcourse" class="nav-item nav-link">Courses</a>
+                        <a routerLink="/student/viewteacher" class="nav-item nav-link">Teachers</a>
+                        <a routerLink="/student/mycourses" class="nav-item nav-link">My courses</a>
+                        <a routerLink="/student/searchsessioncourse" class="nav-item nav-link">Search Session</a>
+                        <!-- <a routerLink="/student/weather" class="nav-item nav-link">Weather</a> -->
+                        <a routerLink="/student/history" class="nav-item nav-link">History</a>
+                        <a routerLink="/student/testimonial" class="nav-item nav-link">Testimonials</a>
+                    
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <a class="py-2 px-4 d-block" routerLink="/student/viewprofile">View & Edit  Profile</a>
+                                <!-- <a class="py-2 px-4 d-block" routerLink="/student/editprofile">Edit Profile</a> -->
+                                <a class="py-2 px-4 d-block" routerLink="/student/deleteprofile">Delete Profile</a>
+                                <a class="py-2 px-4 d-block" (click)="logout()">Logout</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+
+
+                    <div class="navbar-nav py-0">
+                         <!-- <div class="notification-icon nav-item nav-link dropdown">
+                          <i class="fa fa-bell" data-toggle="dropdown" *ngIf="notifications.length > 0"> {{ notifications.length }}</i>
+                          <div class="dropdown-menu dropdown-menu-right">
+                       
+                            <div *ngFor="let notification of notifications; let i = index" class="dropdown-item">
+                              {{ notification }}
+                               **** <button (click)="markAsRead(i)">Mark as read</button> **** 
+                            </div>
+                          </div>
+                        </div>  -->
+
+                    
+
+                    </div>
+               
+
+                       <!-- <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profile</a>
+                            <div class="dropdown-menu rounded-0 m-0">
+                                <a class="  py-2 px-4 ml-auto d-none d-lg-block" 
+                                routerLink="/student/viewprofile">View Profile</a>
+                                <a class=" py-2 px-4 ml-auto d-none d-lg-block" 
+                                routerLink="/student/editprofile">Edit Profile </a> 
+                                <a class=" py-2 px-4 ml-auto d-none d-lg-block" 
+                                routerLink="/student/deleteprofile">Delete Profile </a> 
+                                <a class=" py-2 px-4 ml-auto d-none d-lg-block" 
+                                  (click)="logout()" >Logout </a> 
+                             
+                            </div>
+                        </div> -->
+                </div>
+             
+            </nav>
+        </div>
+    </div>
+</div>

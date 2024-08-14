@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Create New Category</h2>
+<mat-dialog-content class="mat-typography">
+
+    <form class="example-form" [formGroup]="createCatForm">
+        <mat-form-field class="example-full-width">
+          <mat-label>Category Name</mat-label>
+          <input type="text" matInput formControlName="categoryname">
+         
+          <mat-error *ngIf="createCatForm.controls['categoryname'].hasError('required')">
+            Category Name is <strong>required</strong>
+          </mat-error> 
+        </mat-form-field>
+
+        
+
+          <div>
+            <input type="file" formControlName="imagename" #file (change)="uploadImage(file.files)">
+          </div>
+
+      </form>
+      
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="m.CreateCategory(createCatForm.value)">Create</button>
+</mat-dialog-actions>
+

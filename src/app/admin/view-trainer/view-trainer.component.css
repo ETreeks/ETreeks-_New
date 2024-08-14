@@ -1,0 +1,31 @@
+h6 {
+    font-size: 1.10rem; 
+    color: cornflowerblue;
+  }
+
+  h5 {
+    font-size: .90rem; 
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table thead th {
+    background-color: #f8f9fa;
+    color: #343a40;
+  }
+  
+  .table th, .table td {
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #9bc3eb;
+  }

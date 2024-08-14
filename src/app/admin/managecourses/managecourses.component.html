@@ -1,0 +1,90 @@
+<app-sidebar></app-sidebar>
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+data-sidebar-position="fixed" data-header-position="fixed">
+<div class="body-wrapper">
+    <div class="container-fluid">
+      <label> <strong> Search for the course name</strong></label>
+      <input  type="text" [(ngModel)]="_filetrText" class="search-input">
+  
+            <div class="card w-100">
+              <div class="card-body p-6">
+                <h6 class="card-title fw-semibold mb-6">All Courses</h6>
+                <div class="table-responsive">
+                  <table class="table text-nowrap mb-0 align-middle">
+                    <thead class="text-dark fs-6">
+                      <tr>
+                       
+                        <th class="border-bottom-0" style="width: 20%;">
+                          <h6 class="fw-semibold mb-0">Name</h6>
+                        </th>
+                      
+                       
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">acceptedStatus</h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">price</h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">passmark</h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">imagename</h6>
+                          </th>
+                          <th class="border-bottom-0" style="width: 30%;">
+                            <h6 class="fw-semibold mb-0">Created Date</h6>
+                          </th>
+                         <th>
+                            Operation
+                        </th> 
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- <tr *ngFor="let course of mc.courses"> -->
+                        <tr *ngFor="let course of mc.courses | coursesearch:_filetrText">
+                       
+                        <td class="border-bottom-0">
+                            <h5 class="fw-semibold mb-1">{{course.name}}</h5>
+                          </td>
+                     
+                       
+                          <td class="border-bottom-0">
+                            <h5 class="mb-0 fw-normal">{{course.accepted_Status}}</h5>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h5 class="mb-0 fw-normal">{{course.price}}</h5>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h5 class="mb-0 fw-normal">{{course.passmark}}</h5>
+                          </td>
+                          <!-- <td class="border-bottom-0">
+                            <p class="mb-0 fw-normal">{{course.imagename}}</p>
+                          </td> -->
+                          <td>
+                            <!-- <p class="mb-0 fw-normal">{{course.imagename}}</p>   -->
+                              <img src="../../../assets/Images/{{course.imagename}}" style="width: 100%;"> 
+                          </td>
+                          <td class="border-bottom-0">
+                            <h5 class="mb-0 fw-normal">{{course.createddate | date:'shortDate'}}</h5>
+                          </td>
+                
+                              <td>
+                                <button class="btn" 
+                                        (click)="AcceptCourse(course.id)" 
+                                        [disabled]="course.accepted_Status === 'Accepted'"
+                                        [ngClass]="{'accepted-button': course.accepted_Status === 'Accepted'}"
+                                        [ngClass]="{'pending-button': course.accepted_Status === 'Pending'}"> 
+                                  Accept 
+                                </button>
+                              </td>
+                              
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        </div>
+
+</div>

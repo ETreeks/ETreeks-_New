@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>Create Course</h2>
+<mat-dialog-content class="mat-typography">
+  <form class="example-form" [formGroup]="createcourseForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>Course Name</mat-label>
+      <input type="text" matInput formControlName="name">
+      <mat-error *ngIf="createcourseForm.controls['name'].hasError('required')">
+        Course Name is <strong>required</strong>
+      </mat-error> 
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>price</mat-label>
+        <input type="text" matInput formControlName="price" >
+      </mat-form-field>
+
+      
+      <mat-form-field class="example-full-width">
+        <mat-label>passmark</mat-label>
+        <input type="text" matInput formControlName="passmark" >
+      </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category_Id">
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+          {{category.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <input type="file" formControlName="imagename" #file (change)="uploadImage(file.files)">
+    </div>
+    
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="m.CreateCourse(createcourseForm.value)">Create</button>
+</mat-dialog-actions>
+

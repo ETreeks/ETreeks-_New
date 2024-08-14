@@ -1,0 +1,61 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  text-align: left;
+}
+
+
+
+table thead tr {
+  background-color: #ff8330;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+
+table th, table td {
+  padding: 12px 15px;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+/* table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+} */
+
+table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+button {
+  padding: 8px 12px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button.accept {
+  background-color: #4CAF50;
+  color: white;
+}
+
+button.reject {
+  background-color: #f75e53;
+  color: white;
+}
+
+button.pending {
+  background-color: #FFC107;
+  color: white;
+}

@@ -1,0 +1,120 @@
+<!-- <app-studentnavbar></app-studentnavbar>
+
+<div class="container">
+  <h2>Your Reservations</h2>
+
+  <div *ngIf="reservations3.length === 0">
+    <p>No reservations found for your account.</p>
+  </div>
+
+  <div *ngIf="reservations3.length > 0">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Course Name</th>
+          <th>session Name</th>
+          <th>Reservation Date</th>
+          <th>Status</th>
+          <th>Completed</th>
+          <th>final Mark</th>
+          <th>Review</th>
+          <th>Certification</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let reservation of reservations3">
+         ***<td>{{ reservation.course_Id }}</td> 
+           <td>{{ courseDetailsMap.get(reservation.course_Id) || 'Unknown Course' }}</td> ***
+          <td>{{ reservation.course_Name }}</td>
+          <td>{{ reservation.session_Name }}</td>
+          <td>{{ reservation.reservation_Date | date: 'short' }}</td>
+          <td>{{ reservation.reservation_Status }}</td>
+          <td>{{ reservation.completed_Status }}</td>
+          <td>{{ reservation.final_Mark }}</td>
+          <td>
+            <button 
+              class="button-add-review" 
+              (click)="openCreateRDailog(reservation.cid)" 
+              [disabled]="reservation.reservation_Status === 'Pending'">
+              Add Review
+            </button>
+          </td>
+          <td>
+            <div>
+ 
+              <button class="custom-button" (click)="loadReservations(reservation.reservation_ID,reservation.cid)"
+              [disabled]="reservation.reservation_Status === 'Pending' || reservation.completed_Status === 'No' ">
+              Generate Certificates</button>
+             
+              <canvas #canvas width="800" height="600" style="display:none;"></canvas>
+             
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-footer></app-footer> -->
+
+<app-studentnavbar></app-studentnavbar>
+<div *ngIf="s.RD.length > 0; else noData">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        
+        <th>Course Name</th>
+        <th>Completed</th>
+        <th>reservation_Status</th>
+        <th>Reservation Date</th>
+        <th>Review</th>
+        <th>Certification</th>
+        <!-- Add more headers based on the properties you want to display -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let reservation of s.RD">
+      
+        <td>{{ reservation.course_Name }}</td>
+        <td>{{ reservation.reservation_Status }}</td>
+        <td>{{ reservation.completed_Status }}</td>
+        <td>{{ reservation.reservation_Date | date: 'short' }}</td>
+        <td>
+          <button 
+            class="button-add-review" 
+            (click)="openCreateRDailog(reservation.cid)" 
+            [disabled]="reservation.reservation_Status === 'Pending'">
+            Add Review
+          </button>
+        </td>
+      <td>
+         <div>
+ 
+          <button class="custom-button" (click)="loadReservations(reservation.reservation_ID,reservation.course_Name)"
+          [disabled]="reservation.reservation_Status === 'Pending' || reservation.completed_Status === 'No' "
+          >
+         
+         
+          Generate Certificates</button>
+         
+          <canvas #canvas width="800" height="600" style="display:none;"></canvas>
+         
+        </div>
+      </td>
+        <!-- Add more columns based on the properties you want to display -->
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noData>
+  <p>No reservations found.</p>
+</ng-template>
+
+
+<app-footer></app-footer> 
+
+
+
+

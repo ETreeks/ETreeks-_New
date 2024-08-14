@@ -1,0 +1,30 @@
+<div class="container">
+    <app-sidebar></app-sidebar>
+    <div class="main-content">
+      <form (ngSubmit)="onSubmit()" #trainerForm="ngForm">
+        <div>
+          <label for="trainerId">Trainer ID:</label>
+          <input
+            type="number"
+            id="trainerId"
+            name="trainerId"
+            [(ngModel)]="trainerId"
+            required
+            #trainerIdInput="ngModel"
+          />
+          <div *ngIf="trainerIdInput.invalid && (trainerIdInput.dirty || trainerIdInput.touched)">
+            <small *ngIf="trainerIdInput.hasError('required')">Trainer ID is required.</small>
+          </div>
+        </div>
+        <button type="submit" [disabled]="trainerForm.invalid">Get Email</button>
+      </form>
+  
+      <div *ngIf="email">
+        <p>Email for Trainer ID {{ trainerId }}: {{ email }}</p>
+      </div>
+      <div *ngIf="!email && submitted">
+        <p>No email found for the given Trainer ID.</p>
+      </div>
+    </div>
+  </div>
+  

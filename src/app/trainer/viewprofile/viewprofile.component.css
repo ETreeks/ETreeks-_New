@@ -1,0 +1,67 @@
+.dashboard-container {
+  display: flex;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light background for the entire dashboard */
+}
+
+app-sidebartrainer {
+  width: 250px; /* Adjust as needed */
+  flex-shrink: 0; /* Prevent sidebar from shrinking */
+}
+
+.profile-container {
+  flex: 1; /* Take up the remaining space */
+  padding: 20px;
+  background-color: #ffffff; /* White background for the profile container */
+  border-radius: 8px; /* Rounded corners for the profile container */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  max-width: 600px; /* Limit the width for a smaller design */
+  margin: 0 auto; /* Center the profile container horizontally */
+  background: #f2f2f2; /* Light grey background for the profile container */
+  border: 1px solid #ddd; /* Optional border to add more definition */
+}
+
+.profile-header {
+  text-align: center;
+  color: #333; /* Dark text color for the header */
+  font-size: 24px; /* Smaller font size for the header */
+  margin-bottom: 20px; /* Space below the header */
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Reduced space between form groups */
+}
+
+.form-group {
+  margin-bottom: 10px; /* Reduced margin below each form group */
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px; /* Reduced padding for smaller input fields */
+  border: 1px solid #000000;
+  border-radius: 4px;
+  font-size: 14px; /* Smaller font size for input fields */
+  background-color: #fcb899; /* White background for input fields */
+}
+
+.form-control:focus {
+  border-color: #ff6600; /* Orange border on focus */
+  outline: none;
+}
+
+.btn-primary {
+  background-color: #ff6600; /* Orange background */
+  border: none;
+  color: white;
+  padding: 8px 16px; /* Reduced padding for a smaller button */
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px; /* Smaller font size for the button */
+}
+
+.btn-primary:hover {
+  background-color: #e65c00; /* Darker orange on hover */
+}

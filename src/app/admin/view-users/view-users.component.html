@@ -1,0 +1,93 @@
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="body-wrapper">
+    <div class="container-fluid">
+    <div class="row">
+    
+        <div class="card w-100">
+          <div class="card-body p-4">
+            <h6 class="card-title fw-semibold mb-4">View All Users</h6>
+            <div class="table-responsive">
+              <table class="table text-nowrap mb-0 align-middle">
+                <thead class="text-dark fs-4">
+                  <tr>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">User Role</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">UserName</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Full Name</h6>
+                    </th>
+                    <!-- <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">First Name</h6>
+                    </th> -->
+                    <!-- <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Last Name</h6>
+                    </th> -->
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Email</h6>
+                    </th>
+                  
+                  
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Phone</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Certificate</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Specialization</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Gender</h6>
+                    </th>
+                    <!-- <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Image Name</h6>
+                    </th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of admin2.AllUsers">
+                    <td class="border-bottom-0">
+                      <h4 class="fw-semibold mb-0">
+                     <!-- {{ user.roleId === 1 ? 'Admin' : user.roleId === 2 ? 'Trainer' : user.roleId === 3 ? 'Student' : 'Unknown' }} -->
+                       {{ user.role_Id === 2 ? 'Trainer' : user.role_Id === 3 ? 'Student' : 'Admin' }} 
+                      </h4>
+                    </td>
+                    <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{ user.username }}</h5></td>
+                    <td class="border-bottom-0"><h5 class="fw-semibold mb-1">{{ user.fname }} {{ user.lname }}</h5></td>
+                    <!-- <td class="border-bottom-0"><h5 class="fw-semibold mb-1">{{ user.lname }}</h5></td> -->
+                    <td class="border-bottom-0"><h5 class="mb-0 fw-normal">{{ user.email }}</h5></td>
+          
+                 
+                    <td class="border-bottom-0"><h5 class="fw-semibold mb-0 fs-4">{{ user.phone }}</h5></td>
+                     <!-- <td class="border-bottom-0"><h5 class="fw-semibold mb-0 fs-4">{{ user.certificate }}</h5></td> -->
+
+                    <td>
+                      
+                        <img src="../../../assets/Images/{{user.certificate}}" style="width: 100%;">  
+                   </td>
+
+                    <td class="border-bottom-0"><h5 class="fw-semibold mb-0 fs-4">{{ user.specialization }}</h5></td>
+                    <td class="border-bottom-0"><h5 class="fw-semibold mb-0 fs-4">{{ user.gender }}</h5></td>
+                    <!-- <td class="border-bottom-0">
+                      <div class="d-flex align-items-center gap-2">
+                        <span class="badge bg-primary rounded-3 fw-semibold">{{ user.imagename }}</span>
+                      </div>
+                    </td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+ 
+    </div>
+    
+    </div>
+  </div>
+</div>

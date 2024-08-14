@@ -1,0 +1,84 @@
+<app-sidebar></app-sidebar>
+
+
+
+
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+data-sidebar-position="fixed" data-header-position="fixed">
+<div class="body-wrapper">
+    <div class="container-fluid">
+    
+        
+            <div class="card w-100">
+              <div class="card-body p-6">
+                <h5 class="card-title fw-semibold mb-6">All Testimonials</h5>
+                <div class="table-responsive">
+                  <table class="table text-nowrap mb-0 align-middle">
+                    <thead class="text-dark fs-6">
+                      <tr>
+                        <th class="border-bottom-0" style="width: 20%;">
+                          <h6 class="fw-semibold mb-0">Testimonial Text</h6>
+                        </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Testimonial Status</h6>
+                          </th>
+                         <th>
+                            Operation
+                        </th> 
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let t of A.testimonial">
+
+                        <td class="border-bottom-0">
+                            <h5 class="fw-semibold mb-1">{{t.testimonialstext}}</h5>
+                        </td>
+                          <td class="border-bottom-0">
+                            <h5 class="mb-0 fw-normal">{{t.testimonialsstatus}}</h5>
+                          </td>
+                             <td>
+                            <button class="btn delete-button" (click)="openDeleteDailog(t.id)"> Delete </button>
+                       
+                            <button class="btn" 
+                            (click)="AcceptTest(t.id)" 
+                            [disabled]="t.testimonialsstatus === 'Accepted'"
+                            [ngClass]="{'accepted-button': t.testimonialsstatus === 'Accepted'}"
+                            [ngClass]="{'pending-button': t.testimonialsstatus === 'Pending'}"> 
+                      Accept 
+                    </button>
+                            </td> 
+                            
+                            <!-- <td>
+                              <button class="btn-primary" (click)="AcceptTest(t.id)"> Accept </button>
+                              </td> -->
+                           
+                            
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+        </div>
+ 
+</div>
+
+<ng-template #deleteDailog>          
+    <h1 mat-dialog-title>Delete Testimonial </h1>
+    <div mat-dialog-content>
+      Would you like to delete this Testimonial ?
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close="no">No</button>
+      <button mat-button mat-dialog-close="yes" cdkFocusInitial>Yes</button>
+    </div></ng-template>
+
+
+
+
+
+
+  
+
+  

@@ -1,0 +1,68 @@
+
+<app-studentnavbar></app-studentnavbar>
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="body-wrapper">
+      <div class="container-fluid">
+          <div class="form-group mb-3">
+              <label for="trainerSelect">Select Trainer</label>
+              <select id="trainerSelect" class="form-control" [(ngModel)]="selectedTrainerUsername" (change)="onTrainerChange()">
+                  <option *ngFor="let trainer of trainers" [value]="trainer">{{ trainer }}</option>
+              </select>
+          </div>
+
+          <!-- Buttons for Search and Clear -->
+          <div class="mb-4">
+              <!-- <button class="btn btn-primary me-2" (click)="onSearch()">Search</button> -->
+              <button class="btn btn-secondary" (click)="onClear()">Clear</button>
+          </div>
+
+          <div class="col-lg-12 d-flex align-items-stretch">
+              <div class="card-body p-6">
+                  <h5 class="card-title fw-semibold mb-6">Trainer Sessions</h5>
+                  <div class="table-responsive">
+                      <table class="table text-nowrap mb-0 align-middle">
+                          <thead class="text-dark fs-6">
+                              <tr>
+                                  <th class="border-bottom-0" style="width: 30%;">
+                                      <h6 class="fw-semibold mb-0">Course Name</h6>
+                                  </th>
+                                  <th class="border-bottom-0" style="width: 30%;">
+                                      <h6 class="fw-semibold mb-0">Session Name</h6>
+                                  </th>
+                                  <th class="border-bottom-0" style="width: 20%;">
+                                      <h6 class="fw-semibold mb-0">Start Date</h6>
+                                  </th>
+                                  <th class="border-bottom-0" style="width: 20%;">
+                                      <h6 class="fw-semibold mb-0">End Date</h6>
+                                  </th>
+
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let session of sessions">
+                                  <td class="border-bottom-0">
+                                      <h3 class="fw-semibold mb-0">{{ session.courseName }}</h3>
+                                  </td>
+                                  <td class="border-bottom-0">
+                                      <h3 class="fw-semibold mb-1">{{ session.sessionName }}</h3>
+                                  </td>
+                                  <td class="border-bottom-0">
+                                      <h3 class="mb-0 fw-normal">{{ session.startDate | date:'shortDate' }}</h3>
+                                  </td>
+                                  <td class="border-bottom-0">
+                                      <h3 class="mb-0 fw-normal">{{ session.endDate | date:'shortDate' }}</h3>
+                                  </td>
+                                
+                              </tr>
+                              <tr *ngIf="sessions.length === 0">
+                                  <td colspan="4" class="text-center">No sessions found.</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,98 @@
+<app-sidebartrainer></app-sidebartrainer>
+
+
+    <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+      <div class="body-wrapper">
+        <div class="container-fluid">
+          <button (click)="openCreateDailog()" type="button" class="btn btn-primary mb-3" mat-button>Create New</button>
+
+        <div class="row">
+          <div class="col-lg-8 d-flex align-items-stretch">
+            <div class="card w-100">
+              <div class="card-body p-4">
+                <h5 class="card-title fw-semibold mb-4">View All Course Session</h5>
+                <div class="table-responsive">
+                  <table class="table text-nowrap mb-0 align-middle">
+                    <thead class="text-dark fs-4">
+                <tr>
+                  <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Id</h6></th>
+                  <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Name</h6></th>
+                  <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Start Date</h6></th>
+                  <th class="border-bottom-0"><h6 class="fw-semibold mb-0">End Date</h6></th>
+                  <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Available Status</h6></th>
+                  <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Course Id</h6></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let session of TService.courseSession ">
+                  <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{session.id}}</h6></td>
+                  <td class="border-bottom-0"><h4 class="fw-semibold mb-1">{{session.name | lowercase}}</h4></td>
+                  <td class="border-bottom-0"><h4 class="mb-0 fw-normal">{{session.startdate | date:'shortDate'}}</h4></td>
+                  <td class="border-bottom-0"><h4 class="mb-0 fw-normal">{{session.enddate | date:'shortDate'}}</h4></td>
+                  <td class="border-bottom-0"><h4 class="mb-0 fw-normal">{{session.availableStatus}}</h4></td>
+                  <td class="border-bottom-0"><h4 class="mb-0 fw-normal">{{session.courseId}}</h4></td>
+                  <td>
+                    <button type="button" class="btn btn-danger m-2" (click)="openDeleteDailog(session.id)">Delete</button>
+                    <button type="button" class="btn btn-primary" (click)="openUpdateDailog(session)">Update</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Delete Dialog Template -->
+  <ng-template #deleteDailog>
+    <h1 mat-dialog-title>Delete Course Session</h1>
+    <div mat-dialog-content>
+      Would you like to delete this Course Session?
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close="no">No</button>
+      <button mat-button mat-dialog-close="yes" cdkFocusInitial>Yes</button>
+    </div>
+  </ng-template>
+  
+  <!-- Update Dialog Template -->
+  <ng-template #updateDailog>
+    <h2 mat-dialog-title>Update Course Session</h2>
+    <mat-dialog-content class="mat-typography">
+      <form class="example-form" [formGroup]="updateForm">
+        <mat-form-field class="example-full-width">
+          <mat-label>Course Session Id</mat-label>
+          <input type="number" matInput formControlName="Id" [(ngModel)]="pData.Id">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Course Session Name</mat-label>
+          <input type="text" matInput formControlName="Name" [(ngModel)]="pData.Name">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Start Date</mat-label>
+          <input type="date" matInput formControlName="Startdate" [(ngModel)]="pData.Startdate">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>End Date</mat-label>
+          <input type="date" matInput formControlName="Enddate" [(ngModel)]="pData.Enddate">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Available Status</mat-label>
+          <input type="text" matInput formControlName="AvailableStatus" [(ngModel)]="pData.AvailableStatus">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Course Id</mat-label>
+          <input type="number" matInput formControlName="CourseId" [(ngModel)]="pData.CourseId">
+        </mat-form-field>
+      </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="update()">Update</button>
+    </mat-dialog-actions>
+  </ng-template>
+
+</div>
+

@@ -1,0 +1,54 @@
+<app-sidebar></app-sidebar>
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <div class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+      <div class="d-flex align-items-center justify-content-center w-100">
+        <div class="row justify-content-center w-100">
+          <div class="col-md-8 col-lg-6 col-xxl-3">
+            <div class="card mb-0">
+              <div class="card-body">
+                <img src="../../../assets/AdminTemp/images/logos/logo.png" width="180" alt="">
+                <p class="text-center">Update Home</p>
+                <form>
+                  <div class="mb-3">
+                    <label for="exampleInputtext1" class="form-label">Location</label>
+                    <input type="text" class="form-control" id="exampleInputtext1" [(ngModel)]="location" name="location" required>
+                    <span class="text-danger" *ngIf="!location">Location is required</span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputtext2" class="form-label">Description</label>
+                    <input type="text" class="form-control" id="exampleInputtext2" [(ngModel)]="description" name="description" required>
+                    <span class="text-danger" *ngIf="!description">Description is required</span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputtext3" class="form-label">Image Name</label>
+                    <input type="text" class="form-control" id="exampleInputtext3" [(ngModel)]="imagename" name="imagename" required>
+                    <span class="text-danger" *ngIf="!imagename">Image name is required</span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputtext4" class="form-label">Phone</label>
+                    <input type="text" class="form-control" id="exampleInputtext4" [(ngModel)]="phone" name="phone" required>
+                    <span class="text-danger" *ngIf="!phone">Phone is required</span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputtext5" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="exampleInputtext5" [(ngModel)]="email" name="email" required>
+                    <span class="text-danger" *ngIf="!email">Email is required</span>
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputtext6" class="form-label">Title</label>
+                    <input type="text" class="form-control" id="exampleInputtext6" [(ngModel)]="title1" name="title1" required>
+                    <span class="text-danger" *ngIf="!title1">Title is required</span>
+                  </div>
+                  <button type="button" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" (click)="updateHome()">
+                    Update Home 
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

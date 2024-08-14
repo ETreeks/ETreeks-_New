@@ -1,0 +1,83 @@
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+  data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+    <div class="d-flex align-items-center justify-content-center w-100">
+      <div class="row justify-content-center w-100">
+        <div class="col-md-8 col-lg-6 col-xxl-3">
+          <div class="card mb-0">
+            <div class="card-body">
+              <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
+                <img src="../../../assets/AdminTemp/images/logos/logo.png" width="180" alt="">
+              </a>
+              <p class="text-center">Register As a Coach</p>
+              <form [formGroup]="CoachRegisterForm">
+                <div class="mb-3">
+                  <label for="Fname" class="form-label">First Name</label>
+                  <input type="text" class="form-control" id="Fname" formControlName="Fname" aria-describedby="textHelp">
+                  <span class="text-danger" *ngIf="CoachRegisterForm.controls['Fname'].hasError('required')">Your First Name is required</span>
+                </div>
+                <div class="mb-3">
+                  <label for="Lname" class="form-label">Last Name</label>
+                  <input type="text" class="form-control" id="Lname" formControlName="Lname" aria-describedby="textHelp">
+                  <span class="text-danger" *ngIf="CoachRegisterForm.controls['Lname'].hasError('required')">Your Last Name is required</span>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputtext3" class="form-label">User Name</label>
+                  <input type="text" class="form-control" id="exampleInputtext3" formControlName="Username" aria-describedby="emailHelp">
+                  <span class="text-danger" *ngIf="CoachRegisterForm.controls['Username'].hasError('required')">User Name is required</span>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputtext1" class="form-label">Specialization</label>
+                  <input type="text" class="form-control" id="exampleInputtext1" formControlName="Specialization" aria-describedby="textHelp">
+                  <span class="text-danger" *ngIf="CoachRegisterForm.controls['Specialization'].hasError('required')">Your Specialization is required</span>
+                </div>
+                <div class="mb-4">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" formControlName="Password">
+                  <span class="text-danger" *ngIf="CoachRegisterForm.controls['Password'].hasError('required')">Password is required</span>
+                  <span class="text-danger" *ngIf="CoachRegisterForm.controls['Password'].hasError('minlength')">Please enter a strong password</span>
+                </div>
+
+                <div class="d-flex flex-row align-items-center mb-4">
+                  <div data-mdb-input-init class="form-outline flex-fill mb-0">
+                    <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                    <input type="password" id="form3Example4cd"formControlName ="repeatPassword"  (change)="matchError()" class="form-control" />
+        
+                    <span class="text-danger" 
+                    *ngIf="CoachRegisterForm.controls['repeatPassword'].hasError('misMatch')"> repeate password dosent match the password  :)</span>
+                
+                
+                  </div>
+                </div> 
+
+                <input type="file" formControlName="Certificate" #file (change)="uploadImage(file.files)">
+                <!-- <a href="./index.html" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign Up</a> -->
+               
+                <button  [disabled] ="!CoachRegisterForm.valid"  type="button"  
+                data-mdb-button-init  data-mdb-ripple-init 
+                class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" 
+                (click)="rt.CoachRegister(CoachRegisterForm.value)" routerLink= "/auth/login">
+                  
+                Register
+                </button> 
+
+                <div class="d-flex align-items-center justify-content-center">
+                  <p class="fs-4 mb-0 fw-bold">Already have an Account?</p>
+
+                  <a class="text-primary fw-bold ms-2" routerLink="/auth/login">Sign In</a>
+                
+            
+                
+                
+                </div>
+                <div class="d-flex align-items-center justify-content-center">
+                  <a class="text-primary fw-bold ms-2" routerLink="">Go back</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

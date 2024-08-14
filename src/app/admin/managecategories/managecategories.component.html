@@ -1,0 +1,101 @@
+<app-sidebar></app-sidebar>
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <div class="body-wrapper">
+        <div class="container-fluid">
+            <label> <strong> search for the category Name </strong></label>
+            <input type="text" [(ngModel)]="_filetrText" class="search-input">
+         
+          
+                <div class="card w-100">
+                    <button class="btn create-button" (click)="openCreateCatDailog()" type="button" >Create New</button>
+                    <div class="card-body p-6">
+                      
+                        <h6 class="card-title fw-semibold mb-6">All Categories</h6>
+                        <div class="table-responsive">
+                            <table class="table text-nowrap mb-0 align-middle">
+                                <thead class="text-dark fs-6">
+                                    <tr>
+                                        <th class="border-bottom-0" style="width: 30%;">
+                                            <h6 class="fw-semibold mb-0">Category Name</h6>
+                                        </th>
+                                        <th class="border-bottom-0" style="width: 20%;">
+                                            <h6 class="fw-semibold mb-0">Image Name</h6>
+                                        </th>
+                                        <!-- <th class="border-bottom-0" style="width: 30%;">
+                                            <h6 class="fw-semibold mb-0">Course Details</h6>
+                                        </th> -->
+                                        <th style="width: 10%;">
+                                            Operation
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- <tr *ngFor="let category of managecat.categories"> -->
+                                        <tr *ngFor="let category of managecat.categories | categorysearch:_filetrText">
+                                        <td class="border-bottom-0">
+                                            <h5 class="fw-semibold mb-1">{{category.categoryname}}</h5>
+                                        </td>
+                                        <td>
+                                             <!-- <p class="mb-0 fw-normal">{{category.imagename}} | :)</p>    -->
+                                               <img src="../../../assets/Images/{{category.imagename}}" style="width: 100%;">  
+                                          </td>
+                                          
+                                        <td>
+                                            <button class="btn delete-button" (click)="openDeleteCatDailog(category.id)"> Delete </button>
+                                            <button  class="btn update-button" (click)="openUpdateDailog(category)"> Update </button>
+                                        </td>
+                                        <!-- <td>
+                                            
+                                    </td> -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+          
+        </div>
+    </div>
+</div>
+
+<ng-template #deleteDailog>          
+    <h1 mat-dialog-title>Delete Category</h1>
+    <div mat-dialog-content>
+      Would you like to delete this Category?
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close="no">No</button>
+      <button mat-button mat-dialog-close="yes" cdkFocusInitial>Yes</button>
+    </div></ng-template> 
+
+
+    <ng-template #updateDialog>
+        <h2 mat-dialog-title>Update Category</h2>
+        <mat-dialog-content class="mat-typography">
+          <form class="example-form" [formGroup]="updateForm">
+            <mat-form-field class="example-full-width">
+              <mat-label>Category Name</mat-label>
+              <input type="text" matInput formControlName="categoryname" [(ngModel)]="pData.categoryname">
+              <mat-error *ngIf="updateForm.controls['categoryname'].hasError('required')">
+                Category Name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <div>
+              <!-- <input type="text" matInput formControlName="imagename" [(ngModel)]="pData.imagename"> -->
+              <input type="file" formControlName="imagename" #file (change)="uploadImage(file.files)" [(ngModel)]="pData.imagename">
+            </div>
+            <div *ngIf="pData.imagename">
+                <p>Current Image: {{ pData.imagename }}</p>
+            </div>
+          </form>
+        </mat-dialog-content>
+        <mat-dialog-actions align="end">
+          <button mat-button mat-dialog-close>Cancel</button>
+          <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="Update()">Update</button>
+        </mat-dialog-actions>
+      </ng-template>
+      
+
+
+

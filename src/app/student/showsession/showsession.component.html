@@ -1,0 +1,72 @@
+
+ <app-studentnavbar></app-studentnavbar>
+
+ <div class="container">
+   <div class="course-details-card card">
+     <div class="card-body">
+       <div class="row">
+         <div class="col-md-4 course-image">
+           <img class="img-fluid" [src]="'../../../assets/Images/' + courseDetails.imagename" alt="Course Image">
+         </div>
+         <div class="col-md-8 course-info">
+           <h2>{{ courseDetails?.name }}</h2>
+           <h3><strong>Price:</strong> {{ courseDetails?.price }} $</h3>
+           <hr>
+           <h4>Sessions</h4>
+           <div *ngIf="sessions && sessions.length; else noSessions">
+             <table class="table table-striped">
+               <thead>
+                 <tr>
+                   <th>Session Name</th>
+                   <th>Start Date</th>
+                   <th>End Date</th>
+                   <th>Booking</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr *ngFor="let session of sessions">
+                   <td>{{ session.name }}</td>
+                   <td>{{ session.startdate | date: 'shortDate' }}</td>
+                   <td>{{ session.enddate | date: 'shortDate' }}</td>
+                   <td>  
+                    
+                    <button class="btn btn-primary" (click)="bookCourse(session.id)"
+                    
+                    [disabled]="session.available_Status === 'No'  
+                                 || isBookingDisabled(session.enddate)"
+                    > Book</button></td>
+                 </tr>
+               </tbody>
+               <!-- <tbody>
+                <tr *ngFor="let session of sessions">
+                  <td>{{ session.name }}</td>
+                  <td>{{ session.startdate | date: 'shortDate' }}</td>
+                  <td>{{ session.enddate | date: 'shortDate' }}</td>
+                  <td>
+                    <button 
+                      class="btn btn-primary" 
+                      (click)="bookCourse(session.id)"
+                      [disabled]="session.isBooked || session.startdate < today">
+                      Book
+                    </button>
+                  </td>
+                </tr>
+              </tbody> -->
+              
+             </table>
+           </div>
+           <ng-template #noSessions>
+             <p>No course sessions available.</p>
+           </ng-template>
+           <div class="button-group">
+             <button class="btn btn-secondary" (click)="backToDetails()">Back</button>
+           
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+ 
+ <app-footer></app-footer>
+ 

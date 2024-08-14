@@ -1,0 +1,56 @@
+<app-studentnavbar></app-studentnavbar>
+
+<div class="container mt-5">
+  <h2 class="text-center mb-4 {{ editingTestimonial ? 'update-heading' : 'submit-heading' }}">
+    {{ editingTestimonial ? 'Update Your Testimonial' : 'Submit Your Testimonial' }}
+  </h2>
+
+  <!-- Success and Error Messages -->
+  <div *ngIf="successMessage" class="alert alert-success">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+  <!-- Testimonial Form -->
+  <form [formGroup]="testimonialForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="testimonialText" class="testimonial-label">Your Testimonial</label>
+      <textarea
+        id="testimonialText"
+        formControlName="testimonialText"
+        class="form-control testimonial-textarea"
+        rows="4"
+        placeholder="Write your testimonial here..."
+      ></textarea>
+      <div *ngIf="testimonialForm.get('testimonialText')?.invalid && testimonialForm.get('testimonialText')?.touched" class="text-danger mt-2">
+        Testimonial is required.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3" [disabled]="testimonialForm.invalid">
+      {{ editingTestimonial ? 'Update' : 'Submit' }}
+    </button>
+  </form>
+
+  <!-- Display Approved Testimonials -->
+  <div class="mt-5">
+    <h3 class="text-center">Testimonials</h3>
+    <div *ngIf="testimonials.length === 0" class="text-center mt-3">
+      No approved testimonials available.
+    </div>
+    <div class="card-deck mt-4">
+      <div *ngFor="let testimonial of testimonials" class="card mb-3">
+        <div class="card-body">
+          <p class="card-text">{{ testimonial.testimonialstext }}</p>
+          <footer class="blockquote-footer">
+            <small>Submitted by user ID: {{ testimonial.gusers_Id }}</small>
+          </footer>
+          <!-- Removed Edit and Delete buttons -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

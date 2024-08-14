@@ -1,0 +1,51 @@
+.course-details-card {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .button-spacing {
+    margin-right: 2000; 
+  }
+  /* .button-container {
+    overflow: hidden; 
+  }
+  .back-button {
+    float: right;
+  } */
+  
+  .course-image {
+    flex: 1;
+    max-width: 50%;
+    overflow: hidden;
+  }
+  
+  .course-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .course-info {
+    flex: 1;
+    padding: 16px;
+  }
+  
+  .course-reviews ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .course-reviews li {
+    border-bottom: 1px solid #eee;
+    padding: 8px 0;
+  }
+  .course-image img {
+    width: 50%; 
+    height: auto; 
+    max-width: 400px; 
+    max-height: 300px; 
+    object-fit: cover; 
+  }
+  

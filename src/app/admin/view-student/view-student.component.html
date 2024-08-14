@@ -1,0 +1,82 @@
+<app-sidebar></app-sidebar>
+
+ <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+data-sidebar-position="fixed" data-header-position="fixed">
+<div class="body-wrapper">
+  <div class="container-fluid">
+<div class="row">
+
+    <!-- <div class="col-lg-8 d-flex align-items-stretch"> -->
+      <div class="card w-100">
+        <div class="card-body p-4">
+          <h6 class="card-title fw-semibold mb-4">view All Student</h6>
+          <div class="table-responsive">
+            <table class="table text-nowrap mb-0 align-middle">
+              <thead class="text-dark fs-4">
+                <tr>
+                  <th class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">UserName</h6>
+                  </th>
+                  <th class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">First Name</h6>
+                  </th>
+                  <th class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">Last Name</h6>
+                  </th>
+                  <th class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">Email</h6>
+                  </th>
+                  <th class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">imagename</h6>
+                  </th>
+                  <th class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">gender</h6>
+                  </th>
+                  <th class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">Phone</h6>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let all3 of admin4.viewS">
+                  <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{all3.username}}</h5></td>
+                  
+                  <td class="border-bottom-0">
+                      <h5 class="fw-semibold mb-1">{{all3.fname}}</h5>
+                                           
+                  </td>
+                  <td class="border-bottom-0">
+                    <h5 class="fw-semibold mb-1">{{all3.lname}}</h5>
+                </td>
+                  <td class="border-bottom-0">
+                    <h5 class="fw-semibold mb-1">{{all3.email}}</h5>
+                  </td>
+               
+                  <td>
+                      
+                    <img src="../../../assets/Images/{{all3.imagename}}" style="width: 100%;">  
+               </td>
+                  <td class="border-bottom-0">
+                    <h5 class="fw-semibold mb-0 fs-4">{{all3.gender}}</h5>
+                  </td>
+                  <td class="border-bottom-0">
+                    <h5 class="fw-semibold mb-0 fs-4">{{all3.phone}}</h5>
+                  </td>
+                </tr> 
+                   
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+  </div>
+
+  </div>
+  </div>
+</div> 
+
+
+
+  
+

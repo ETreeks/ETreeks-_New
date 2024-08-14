@@ -1,0 +1,113 @@
+button {
+    margin-right: 8px;
+  }
+
+
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+  input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  h6 {
+    font-size: 1.10rem; 
+    /* color: cornflowerblue; */
+    color: black;
+  }
+
+  h5 {
+    font-size: .90rem; 
+  }
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table thead th {
+    background-color: #f8f9fa;
+    color: #343a40;
+  }
+  
+  .table th, .table td {
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #95abc2;
+  }
+
+
+  .delete-button {
+    margin-right: 25px; 
+    border: 2px solid rgb(0, 0, 0); 
+    color: rgb(0, 0, 0); 
+    background-color: white; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
+  }
+  
+  .delete-button:hover {
+    background-color: rgb(241, 96, 96); 
+    color: white;
+  }
+
+
+
+  .update-button {
+    margin-right: 25px; 
+    border: 2px solid rgb(0, 0, 0); 
+    color: rgb(0, 0, 0); 
+    background-color: white; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
+  }
+  
+  .update-button:hover {
+    background-color: rgb(118, 130, 236); 
+    color: white;
+  }
+
+
+  .create-button {
+    margin-right: 25px; 
+    border: 2px solid rgb(0, 0, 0); 
+    color: rgb(0, 0, 0); 
+    background-color: white; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
+  }
+  
+  .create-button:hover {
+    background-color: rgb(119, 179, 96); 
+    color: white;
+  }
+  .table {
+    width: 100%; 
+    font-size: 1.2rem; 
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.card {
+    padding: 20px; 
+    border-radius: 0.5rem; 
+}
+

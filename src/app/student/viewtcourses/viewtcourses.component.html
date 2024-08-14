@@ -1,0 +1,61 @@
+<app-studentnavbar></app-studentnavbar>
+<div class="container-fluid py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h3 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Courses</h3>
+            <!-- <h1>Our Popular Courses</h1> -->
+        </div>
+           <!-- No Courses Alert -->
+           <div *ngIf="main.coursesTC.length === 0" class="alert alert-info no-courses-alert text-center">
+            No courses available
+          
+        </div>
+      
+         <!-- Courses List -->
+        <div class="row"> 
+            <ng-container *ngFor="let c of main.coursesTC">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="rounded overflow-hidden mb-2 card" >
+
+                        <img src="../../../assets/Images/{{c.imagename}}" class="img-fluid course-image"  alt="{{c.name}}">
+                        <div class="bg-secondary p-4">
+                            <div class="d-flex justify-content-between mb-3">
+                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i> Name :{{c.name}} </small>
+                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>{{ c.createddate }}</small>
+                            </div>
+                            <div class="border-top mt-4 pt-4">
+                                <div class="d-flex justify-content-between">
+                                    <!-- <h5 class="m-0"> Price:{{ course.price }} $</h5> -->
+                                </div>
+                                <div class="d-flex justify-content-end mt-3">
+                                 <!-- <button class="btn btn-primary" (click)="openBookDailog(c.id ,userId)">Book</button>  -->
+                                 <button class="btn btn-primary" (click)="ReadMore(c.id)">Read More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div> 
+    </div>
+
+    
+</div>
+
+
+
+<ng-template #bookDailog>          
+    <h1 mat-dialog-title>Enrollment </h1>
+    <div mat-dialog-content>
+        Do you want to enrollment in this course?
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close="no">No</button>
+      <button mat-button mat-dialog-close="yes" cdkFocusInitial>Yes</button>
+    </div></ng-template> 
+
+
+   
+<button class="btn update-button" (click)="goback()">Go Back </button>
+
+<app-footer></app-footer>
