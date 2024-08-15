@@ -26,6 +26,7 @@ import { ViewtcoursesComponent } from './viewtcourses/viewtcourses.component';
 import { WeatherComponent } from './weather/weather.component';
 import { HistoryComponent } from './history/history.component';
 import { ShowsessionComponent } from './showsession/showsession.component';
+import { MapStudentComponent } from './map-student/map-student.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { ShowsessionComponent } from './showsession/showsession.component';
     WeatherComponent,
     HistoryComponent,
     ShowsessionComponent,
+    MapStudentComponent,
   ],
   imports: [
     CommonModule,

@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { map, Observable } from 'rxjs';
+import { AddresssDto } from 'src/Interface/AddresssDto';
 import { GuserDto } from 'src/Interface/guser.dto';
 import { ProfileStudentDTO } from 'src/Interface/profile-student-dto';
 
@@ -170,6 +171,30 @@ getAllReviews(): Observable<Review[]> {
 }
 getAllUsers(): Observable<Guser[]> {
   return this.http.get<Guser[]>(`https://localhost:7281/api/admin/DisplayAllUsers`);
+}
+
+
+private AapiUrl = 'https://localhost:7281/api/Address'; 
+
+
+createAddress(address: AddresssDto): Observable<any> {
+  return this.http.post<any>(`${this.AapiUrl}/create`, address);
+}
+
+updateAddress(id: number, address: AddresssDto): Observable<any> {
+  return this.http.put<any>(`${this.AapiUrl}/update/${id}`, address);
+}
+
+getAllAddresses(): Observable<AddresssDto[]> {
+  return this.http.get<AddresssDto[]>(`${this.AapiUrl}/get-all`);
+}
+
+getAddressById(id: number): Observable<AddresssDto> {
+  return this.http.get<AddresssDto>(`${this.AapiUrl}/get/${id}`);
+}
+
+deleteAddress(id: number): Observable<any> {
+  return this.http.delete<any>(`${this.AapiUrl}/delete/${id}`);
 }
 
 

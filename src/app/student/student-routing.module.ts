@@ -18,6 +18,7 @@ import { ViewtcoursesComponent } from './viewtcourses/viewtcourses.component';
 import { WeatherComponent } from './weather/weather.component';
 import { HistoryComponent } from './history/history.component';
 import { ShowsessionComponent } from './showsession/showsession.component';
+import { MapStudentComponent } from './map-student/map-student.component';
 
 const routes: Routes = [
   {
@@ -81,6 +82,10 @@ const routes: Routes = [
   {
     path:'weather',
     component:WeatherComponent
+  },
+  {
+    path:'MapStudent',
+    component:MapStudentComponent
   },
   {
     path:'history',
