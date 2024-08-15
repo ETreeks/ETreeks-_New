@@ -12,6 +12,7 @@ import { DashboardtrainerComponent } from './dashboardtrainer/dashboardtrainer.c
 import { CompletedcourseComponent } from './completedcourse/completedcourse.component';
 import { LecturerequestComponent } from './lecturerequest/lecturerequest.component';
 import { CourseSessionComponent } from './course-session/course-session.component';
+import { MapComponent } from './map/map.component';
 
 const routes: Routes = [
 
@@ -58,6 +59,10 @@ const routes: Routes = [
   {
     path:'CourseSession',
     component:CourseSessionComponent
+  },
+  {
+    path:'Map',
+    component:MapComponent
   },
   {
     path:'lecture',

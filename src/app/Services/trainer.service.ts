@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProfileTrainerDTO } from 'src/app/dtos/profile-trainer.dto'; // Adjust path as needed
+import { AddresssDto } from 'src/Interface/AddresssDto';
 
 
 @Injectable({
@@ -227,6 +228,30 @@ uploadFile(file: FormData) {
       alert('Upload Image failed');
     }
   );
+}
+
+
+private AapiUrl = 'https://localhost:7281/api/Address'; 
+
+
+createAddress(address: AddresssDto): Observable<any> {
+  return this.http.post<any>(`${this.AapiUrl}/create`, address);
+}
+
+updateAddress(id: number, address: AddresssDto): Observable<any> {
+  return this.http.put<any>(`${this.AapiUrl}/update/${id}`, address);
+}
+
+getAllAddresses(): Observable<AddresssDto[]> {
+  return this.http.get<AddresssDto[]>(`${this.AapiUrl}/get-all`);
+}
+
+getAddressById(id: number): Observable<AddresssDto> {
+  return this.http.get<AddresssDto>(`${this.AapiUrl}/get/${id}`);
+}
+
+deleteAddress(id: number): Observable<any> {
+  return this.http.delete<any>(`${this.AapiUrl}/delete/${id}`);
 }
 
 }

@@ -1,0 +1,43 @@
+<app-sidebartrainer></app-sidebartrainer>
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="body-wrapper">
+    <div class="container-fluid">
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title">Add Your Loacation <i class="ti ti-map-pin"></i> </h2>
+        <div class="row">
+          <div class="col-md-5">
+            <div class="table-responsive">
+              <table class="table">
+                <tbody *ngIf="selectedLocation">
+                  <tr>
+                    <td><strong>Latitude:</strong> {{ selectedLocation.lat }}</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Longitude:</strong> {{ selectedLocation.lng }}</td>
+                  </tr>
+                  <tr>
+                    <td><strong>City:</strong> {{ selectedLocation.city || 'Not available' }}</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Country:</strong> {{ selectedLocation.country || 'Not available' }}</td>
+                  </tr>
+                  <tr>
+                    <td><button (click)="saveLocation()" class="btn btn-primary">Save Location</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div id="map" style="height: 500px; width: 100%;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
