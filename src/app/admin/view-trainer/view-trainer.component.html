@@ -1,131 +1,4 @@
-<!-- <app-sidebar></app-sidebar>
-
-<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-data-sidebar-position="fixed" data-header-position="fixed">
-<div class="body-wrapper">
-    <div class="container-fluid">
-<div class="row">
-
-   
-      <div class="card w-100">
-        <div class="card-body p-4">
-          <h6 class="card-title fw-semibold mb-4">view All Trainer</h6>
-          <div class="table-responsive">
-            <table class="table text-nowrap mb-5 align-middle">
-              <thead class="text-dark fs-4">
-                <tr>
-                  <th class="border-bottom-0">
-                    <h6 class="fw-semibold mb-0">UserName</h6>
-                  </th>
-                  <th class="border-bottom-0">
-                    <h6 class="fw-semibold mb-0">First Name</h6>
-                  </th>
-                  <th class="border-bottom-0">
-                    <h6 class="fw-semibold mb-0">Last Name</h6>
-                  </th>
-                  <th class="border-bottom-0">
-                    <h6 class="fw-semibold mb-0">Email</h6>
-                  </th>
-                  <th class="border-bottom-0">
-                    <h6 class="fw-semibold mb-0">imagename</h6>
-                  </th>
-                  <th class="border-bottom-0">
-                    <h6 class="fw-semibold mb-0">certificate</h6>
-                  </th>
-                  <th class="border-bottom-0">
-                    <h6 class="fw-semibold mb-0">specialization</h6>
-                  </th>
-                  <th class="border-bottom-0">
-                    <h6 class="fw-semibold mb-0">gender</h6>
-                  </th>
-                  <th class="border-bottom-0">
-                    <h6 class="fw-semibold mb-0">Phone</h6>
-                  </th>
-                  <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Status</h6></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let all2 of admin3.viewT">
-
-                  <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{all2.username}}</h5></td>
-                  
-                  <td class="border-bottom-0">
-                      <h5 class="fw-semibold mb-1">{{all2.fname}}</h5>
-                                           
-                  </td>
-                  <td class="border-bottom-0">
-                    <h5 class="fw-semibold mb-1">{{all2.lname}}</h5>
-                </td>
-
-                  <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{all2.username}}</h6></td>
-                  <td class="border-bottom-0">
-                    <h6 class="fw-semibold mb-1">{{all2.fname}}</h6>
-                  </td>
-                  <td class="border-bottom-0">
-                    <h6 class="fw-semibold mb-1">{{all2.lname}}</h6>
-                  </td>
-
-                  <td class="border-bottom-0">
-                    <h5 class="mb-0 fw-normal">{{all2.email}}</h5>
-                  </td>
-                  <td class="border-bottom-0">
-                    <div class="d-flex align-items-center gap-2">
-
-                    
-                      <img src="../../../assets/Images/{{all2.imagename}}" style="width: 100%;"> 
-                    </div>
-                  </td>
-                  <td class="border-bottom-0">
-                    
-                    <img src="../../../assets/Images/{{all2.certificate}}" style="width: 100%;"> 
-                         
-
-                      <img src="../../../assets/Images/{{all2.imagename}}" style="width: 100%;">
-                    *** </div> ***
-                  </td>
-                  <td class="border-bottom-0">
-                    <img src="../../../assets/Images/{{all2.certificate}}" style="width: 100%;">
-
-                  </td>
-                  <td class="border-bottom-0">
-                    <h5 class="fw-semibold mb-0 fs-4">{{all2.specialization}}</h5>
-                  </td>
-                  <td class="border-bottom-0">
-                    <h5 class="fw-semibold mb-0 fs-4">{{all2.gender}}</h5>
-                  </td>
-                  <td class="border-bottom-0">
-                    <h5 class="fw-semibold mb-0 fs-4">{{all2.phone}}</h5>
-                  </td>
-                  <td class="border-bottom-0">
-                    <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton{{all2.id}}" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ getStatusLabel(all2.Registration_Status_Trainer) }}
-                      </button>
-                      <ul class="dropdown-menu dropdown-menu-end" [attr.aria-labelledby]="'dropdownMenuButton' + all2.id">
-                        <li *ngFor="let status of statusOptions">
-                          <a class="dropdown-item" href="#" (click)="onStatusChange(all2, status.value); $event.preventDefault()">{{status.label}}</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </td>
-        
-                </tr>
-                   
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    
-  </div>
-
-</div>
-  </div>
-</div> 
- -->
-
-
- <app-sidebar></app-sidebar>
+<app-sidebar></app-sidebar>
 
 <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
      data-sidebar-position="fixed" data-header-position="fixed">
@@ -135,7 +8,29 @@ data-sidebar-position="fixed" data-header-position="fixed">
                 <div class="card w-100">
                     <div class="card-body p-4">
                         <h6 class="card-title fw-semibold mb-4">View All Trainers</h6>
-                        <div class="table-responsive">
+                        
+                        <!-- Search Form -->
+                        <div class="search-trainer container mt-5">
+                            <h2 class="text-center mb-4">Search for Trainers</h2>
+
+                            <form (ngSubmit)="searchTrainers()">
+                                <div class="form-group">
+                                    <label for="trainerName" class="form-label">Trainer Name:</label>
+                                    <input
+                                        type="text"
+                                        id="trainerName"
+                                        [(ngModel)]="trainerName"
+                                        name="trainerName"
+                                        class="form-control"
+                                        placeholder="Enter trainer name"
+                                        required
+                                    />
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-search">Search</button>
+                            </form>
+                        </div>
+
+                        <div class="table-responsive mt-5">
                             <table class="table text-nowrap mb-5 align-middle">
                                 <thead class="text-dark fs-4">
                                     <tr>
@@ -147,53 +42,50 @@ data-sidebar-position="fixed" data-header-position="fixed">
                                         <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Specialization</h6></th>
                                         <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Gender</h6></th>
                                         <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Phone</h6></th>
-                                        <!-- <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Status</h6></th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let all2 of admin3.viewT">
-                                        <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{all2.username}}</h5></td>
-                                        <td class="border-bottom-0">
-                                            <h5 class="fw-semibold mb-1">{{all2.fname}} {{all2.lname}}</h5>
-                                        </td>
-                                        <td class="border-bottom-0">
-                                            <h5 class="fw-semibold mb-0">{{all2.email}}</h5>
-                                        </td>
-                                        <td class="border-bottom-0">
-                                            <img src="../../../assets/Images/{{all2.imagename}}" style="width: 100%;">
-                                        </td>
-                                        <td class="border-bottom-0">
-                                            <img src="../../../assets/Images/{{all2.certificate}}" style="width: 100%;">
-                                        </td>
-                                        <td class="border-bottom-0">
-                                            <h5 class="fw-semibold mb-0 fs-4">{{all2.specialization}}</h5>
-                                        </td>
-                                        <td class="border-bottom-0">
-                                            <h5 class="fw-semibold mb-0 fs-4">{{all2.gender}}</h5>
-                                        </td>
-                                        <td class="border-bottom-0">
-                                            <h5 class="fw-semibold mb-0 fs-4">{{all2.phone}}</h5>
-                                        </td>
-                                        <!-- <td class="border-bottom-0">
-                                            <div class="dropdown">
-                                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                                        id="dropdownMenuButton{{all2.id}}" data-bs-toggle="dropdown"
-                                                        aria-expanded="false">
-                                                        *** {{all2.registration_Status_Trainer}} ***
-                                                    {{ getStatusLabel(all2.registration_Status_Trainer) }}
-                                                </button> 
-                                                <ul class="dropdown-menu dropdown-menu-end"
-                                                    [attr.aria-labelledby]="'dropdownMenuButton' + all2.id">
-                                                    <li *ngFor="let status of statusOptions">
-                                                        <a class="dropdown-item" href="#"
-                                                           (click)="onStatusChange(all2, status.value); $event.preventDefault()">{{status.label}}</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </td> -->
-                                    </tr>
+                                    <!-- Display search results if a search has been completed -->
+                                    <ng-container *ngIf="searchCompleted">
+                                        <tr *ngFor="let trainer of trainers">
+                                            <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{trainer.username}}</h5></td>
+                                            <td class="border-bottom-0">
+                                                <h5 class="fw-semibold mb-1">{{trainer.fname}} {{trainer.lname}}</h5>
+                                            </td>
+                                            <td class="border-bottom-0">
+                                                <h5 class="fw-semibold mb-0">{{trainer.email}}</h5>
+                                            </td>
+                                            <td class="border-bottom-0"><img src="../../../assets/Images/{{trainer.imagename}}" style="width: 100%;"></td>
+                                            <td class="border-bottom-0"><img src="../../../assets/Images/{{trainer.certificate}}" style="width: 100%;"></td>
+                                            <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{trainer.specialization}}</h5></td>
+                                            <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{trainer.gender}}</h5></td>
+                                            <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{trainer.phone}}</h5></td>
+                                        </tr>
+                                    </ng-container>
+
+                                    <!-- Display all trainers if no search has been completed -->
+                                    <ng-container *ngIf="!searchCompleted">
+                                        <tr *ngFor="let all2 of admin3.viewT">
+                                            <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{all2.username}}</h5></td>
+                                            <td class="border-bottom-0">
+                                                <h5 class="fw-semibold mb-1">{{all2.fname}} {{all2.lname}}</h5>
+                                            </td>
+                                            <td class="border-bottom-0">
+                                                <h5 class="fw-semibold mb-0">{{all2.email}}</h5>
+                                            </td>
+                                            <td class="border-bottom-0"><img src="../../../assets/Images/{{all2.imagename}}" style="width: 100%;"></td>
+                                            <td class="border-bottom-0"><img src="../../../assets/Images/{{all2.certificate}}" style="width: 100%;"></td>
+                                            <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{all2.specialization}}</h5></td>
+                                            <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{all2.gender}}</h5></td>
+                                            <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{all2.phone}}</h5></td>
+                                        </tr>
+                                    </ng-container>
                                 </tbody>
                             </table>
+                        </div>
+
+                        <div *ngIf="trainers.length === 0 && noResults && searchCompleted" class="text-center mt-3">
+                            <p>No trainers found.</p>
                         </div>
                     </div>
                 </div>
@@ -201,4 +93,3 @@ data-sidebar-position="fixed" data-header-position="fixed">
         </div>
     </div>
 </div>
-
