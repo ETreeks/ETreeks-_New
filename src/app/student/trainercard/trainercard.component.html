@@ -40,7 +40,8 @@
   <h2 class="card-title">{{ Tobject.fname + ' ' + Tobject.lname }}</h2>
   <p class="card-subject">{{ Tobject.email || 'Email not found' }}</p>
   <!-- <button class="card-button">View Courses</button> -->
-  <button class="card-button" (click)="viewCourses(Tobject.id)">View Courses</button>
+  <button class="card-button m-2" (click)="viewCourses(Tobject.id)">View Courses</button>
+  <button class="card-button m-2" (click)="viewLocation(Tobject.id)">View Location</button>
   </div>
   </div>
 

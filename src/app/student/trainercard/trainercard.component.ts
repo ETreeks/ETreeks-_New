@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { MainService } from 'src/app/Services/main.service';
 
@@ -8,21 +8,21 @@ import { MainService } from 'src/app/Services/main.service';
   styleUrls: ['./trainercard.component.css']
 })
 export class TrainercardComponent {
+  @Input() Tobject: any;
+  @Output() locationRequested = new EventEmitter<number>();
 
-  constructor(public main : MainService , private router  :Router){}
-  @Input() Tobject : any ;
-//@Output() Hala = new EventEmitter ();
+  constructor(public main: MainService, private router: Router) {}
 
-  viewCourses(trainerId: number ) {
-   this.main.getAllCoursesTC(trainerId);
-   //this.router.navigate(['student/viewtrainercourses']);
-   this.router.navigate(['student/viewtcourses'], { queryParams: { tID: trainerId } });
-   // this.Hala.emit(this.Tobject.id);
-      
-  console.log('Trainer ID:', trainerId);
-
+  // Method to view courses of the trainer
+  viewCourses(trainerId: number) {
+    this.main.getAllCoursesTC(trainerId);
+    this.router.navigate(['student/viewtcourses'], { queryParams: { tID: trainerId } });
+    console.log('Trainer ID:', trainerId);
   }
 
-
- }
- 
+  // Method to request location of the trainer
+  viewLocation(trainerId: number) {
+    this.locationRequested.emit(trainerId);
+    console.log('Requested location for Trainer ID:', trainerId);
+  }
+}

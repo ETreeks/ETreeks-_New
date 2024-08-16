@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { BehaviorSubject, catchError, map, Observable, tap, throwError } from 'rxjs';
+import { AddressStudentDto } from 'src/Interface/AddressStudentDto';
 import { GuserDto } from 'src/Interface/guser.dto';
 import { UpdateProfileAdminDto } from 'src/Interface/update-profile-admin.dto';
 import {ProfileTrainerDTO} from'src/app/dtos/profile-trainer.dto';
@@ -552,6 +553,15 @@ getTrainerEmail(trainerId: number): Observable<string> {
       return throwError(error);
     })
   );
+}
+
+
+ 
+
+
+private SearchAddressApiUrl = 'https://localhost:7281/api/Trainer';
+getTrainerAddress(trainerId: number): Observable<AddressStudentDto> {
+  return this.http.get<AddressStudentDto>(`${this.SearchAddressApiUrl}/address/${trainerId}`);
 }
 
 }
