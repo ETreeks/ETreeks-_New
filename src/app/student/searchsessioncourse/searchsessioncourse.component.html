@@ -65,6 +65,26 @@
                                 </td>
                                 
                               </tr>
+                              <!-- <ng-container *ngFor="let session of sessions">
+                                <tr *ngIf="session.availablE_STATUS === 'Yes'">
+                                    <td class="border-bottom-0">
+                                        <h3 class="fw-semibold mb-0">{{ session.courseName }}</h3>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <h3 class="fw-semibold mb-1">{{ session.sessionName }}</h3>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <h3 class="mb-0 fw-normal">{{ session.startDate | date:'shortDate' }}</h3>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <h3 class="mb-0 fw-normal">{{ session.endDate | date:'shortDate' }}</h3>
+                                    </td>
+                                    <td class="border-bottom-0">
+                                        <h3 class="mb-0 fw-normal">{{ session.availablE_STATUS }}</h3>
+                                    </td>
+                                </tr>
+                              </ng-container> -->
+                              
                               <tr *ngIf="sessions.length === 0">
                                   <td colspan="4" class="text-center">No sessions found.</td>
                               </tr>

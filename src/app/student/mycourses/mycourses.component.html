@@ -59,14 +59,17 @@
 <app-footer></app-footer> -->
 
 <app-studentnavbar></app-studentnavbar>
+<br>
+<div class="container">
 <div *ngIf="s.RD.length > 0; else noData">
   <table class="table table-striped">
     <thead>
       <tr>
         
         <th>Course Name</th>
+        <th>Reservation Status</th>
         <th>Completed</th>
-        <th>reservation_Status</th>
+       
         <th>Reservation Date</th>
         <th>Review</th>
         <th>Certification</th>
@@ -107,7 +110,7 @@
     </tbody>
   </table>
 </div>
-
+</div>
 <ng-template #noData>
   <p>No reservations found.</p>
 </ng-template>

@@ -526,6 +526,7 @@ private apiUrl2 = 'https://localhost:7281/api/Admin';
 
 
 uploadProfileImage(imageData: FormData): Observable<GuserDto> {
+  debugger
   return this.http.post<GuserDto>(`${this.apiUrl2}/UploadImage`, imageData);
 }
 
