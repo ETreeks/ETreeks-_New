@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./homestudent.component.css']
 })
 export class HomestudentComponent {
-
+  username = String(localStorage.getItem('username')); 
 }
