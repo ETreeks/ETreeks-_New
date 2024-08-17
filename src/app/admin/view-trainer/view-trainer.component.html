@@ -1,4 +1,4 @@
-<app-sidebar></app-sidebar>
+<app-headercomponent></app-headercomponent>
 
 <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
      data-sidebar-position="fixed" data-header-position="fixed">
@@ -6,87 +6,74 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="card w-100">
-                    <div class="card-body p-4">
-                        <h6 class="card-title fw-semibold mb-4">View All Trainers</h6>
                         
-                        <!-- Search Form -->
-                        <div class="search-trainer container mt-5">
-                            <h2 class="text-center mb-4">Search for Trainers</h2>
+                    <!-- Search Form -->
+                    <div class="search-trainer container mt-5">
+                        <h2 class="text-center mb-2">Search for Trainers</h2> <!-- Reduced margin-bottom -->
 
-                            <form (ngSubmit)="searchTrainers()">
-                                <div class="form-group">
-                                    <label for="trainerName" class="form-label">Trainer Name:</label>
-                                    <input
-                                        type="text"
-                                        id="trainerName"
-                                        [(ngModel)]="trainerName"
-                                        name="trainerName"
-                                        class="form-control"
-                                        placeholder="Enter trainer name"
-                                        required
-                                    />
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-search">Search</button>
-                            </form>
-                        </div>
+                        <form (ngSubmit)="searchTrainers()">
+                            <div class="form-group">
+                                <label for="trainerName" class="form-label">Trainer Name:</label>
+                                <input
+                                    type="text"
+                                    id="trainerName"
+                                    [(ngModel)]="trainerName"
+                                    name="trainerName"
+                                    class="form-control"
+                                    placeholder="Enter trainer name"
+                                    required
+                                />
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-search">Search</button>
+                        </form>
+                    </div>
 
-                        <div class="table-responsive mt-5">
-                            <table class="table text-nowrap mb-5 align-middle">
-                                <thead class="text-dark fs-4">
-                                    <tr>
-                                        <th class="border-bottom-0"><h6 class="fw-semibold mb-0">UserName</h6></th>
-                                        <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Full Name</h6></th>
-                                        <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Email</h6></th>
-                                        <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Image Name</h6></th>
-                                        <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Certificate</h6></th>
-                                        <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Specialization</h6></th>
-                                        <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Gender</h6></th>
-                                        <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Phone</h6></th>
+                    <!-- Search Results -->
+                    <div class="table-responsive mt-5">
+                        <table class="table table-lg text-nowrap mb-5 align-middle"> <!-- Increased table size -->
+                            <thead class="text-dark fs-4">
+                                <tr>
+                                    <th class="border-bottom-0"><h6 class="fw-semibold mb-0">UserName</h6></th>
+                                    <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Full Name</h6></th>
+                                    <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Email</h6></th>
+                                    <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Image Name</h6></th>
+                                    <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Certificate</h6></th>
+                                    <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Specialization</h6></th>
+                                    <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Gender</h6></th>
+                                    <th class="border-bottom-0"><h6 class="fw-semibold mb-0">Phone</h6></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ng-container *ngIf="searchCompleted">
+                                    <tr *ngFor="let trainer of trainers">
+                                        <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{trainer.username}}</h5></td>
+                                        <td class="border-bottom-0"><h5 class="fw-semibold mb-1">{{trainer.fname}} {{trainer.lname}}</h5></td>
+                                        <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{trainer.email}}</h5></td>
+                                        <td class="border-bottom-0"><img src="../../../assets/Images/{{trainer.imagename}}" style="width: 100%;"></td>
+                                        <td class="border-bottom-0"><img src="../../../assets/Images/{{trainer.certificate}}" style="width: 100%;"></td>
+                                        <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{trainer.specialization}}</h5></td>
+                                        <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{trainer.gender}}</h5></td>
+                                        <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{trainer.phone}}</h5></td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    <!-- Display search results if a search has been completed -->
-                                    <ng-container *ngIf="searchCompleted">
-                                        <tr *ngFor="let trainer of trainers">
-                                            <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{trainer.username}}</h5></td>
-                                            <td class="border-bottom-0">
-                                                <h5 class="fw-semibold mb-1">{{trainer.fname}} {{trainer.lname}}</h5>
-                                            </td>
-                                            <td class="border-bottom-0">
-                                                <h5 class="fw-semibold mb-0">{{trainer.email}}</h5>
-                                            </td>
-                                            <td class="border-bottom-0"><img src="../../../assets/Images/{{trainer.imagename}}" style="width: 100%;"></td>
-                                            <td class="border-bottom-0"><img src="../../../assets/Images/{{trainer.certificate}}" style="width: 100%;"></td>
-                                            <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{trainer.specialization}}</h5></td>
-                                            <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{trainer.gender}}</h5></td>
-                                            <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{trainer.phone}}</h5></td>
-                                        </tr>
-                                    </ng-container>
+                                </ng-container>
+                                <ng-container *ngIf="!searchCompleted">
+                                    <tr *ngFor="let all2 of admin3.viewT">
+                                        <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{all2.username}}</h5></td>
+                                        <td class="border-bottom-0"><h5 class="fw-semibold mb-1">{{all2.fname}} {{all2.lname}}</h5></td>
+                                        <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{all2.email}}</h5></td>
+                                        <td class="border-bottom-0"><img src="../../../assets/Images/{{all2.imagename}}" style="width: 100%;"></td>
+                                        <td class="border-bottom-0"><img src="../../../assets/Images/{{all2.certificate}}" style="width: 100%;"></td>
+                                        <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{all2.specialization}}</h5></td>
+                                        <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{all2.gender}}</h5></td>
+                                        <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{all2.phone}}</h5></td>
+                                    </tr>
+                                </ng-container>
+                            </tbody>
+                        </table>
+                    </div>
 
-                                    <!-- Display all trainers if no search has been completed -->
-                                    <ng-container *ngIf="!searchCompleted">
-                                        <tr *ngFor="let all2 of admin3.viewT">
-                                            <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{all2.username}}</h5></td>
-                                            <td class="border-bottom-0">
-                                                <h5 class="fw-semibold mb-1">{{all2.fname}} {{all2.lname}}</h5>
-                                            </td>
-                                            <td class="border-bottom-0">
-                                                <h5 class="fw-semibold mb-0">{{all2.email}}</h5>
-                                            </td>
-                                            <td class="border-bottom-0"><img src="../../../assets/Images/{{all2.imagename}}" style="width: 100%;"></td>
-                                            <td class="border-bottom-0"><img src="../../../assets/Images/{{all2.certificate}}" style="width: 100%;"></td>
-                                            <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{all2.specialization}}</h5></td>
-                                            <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{all2.gender}}</h5></td>
-                                            <td class="border-bottom-0"><h5 class="fw-semibold mb-0">{{all2.phone}}</h5></td>
-                                        </tr>
-                                    </ng-container>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div *ngIf="trainers.length === 0 && noResults && searchCompleted" class="text-center mt-3">
-                            <p>No trainers found.</p>
-                        </div>
+                    <div *ngIf="trainers.length === 0 && noResults && searchCompleted" class="text-center mt-3">
+                        <p>No trainers found.</p>
                     </div>
                 </div>
             </div>

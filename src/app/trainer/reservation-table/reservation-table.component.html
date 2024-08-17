@@ -1,0 +1,54 @@
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="body-wrapper">
+    <div class="container-fluid">
+      <h2>Pending Reservation</h2>
+      <table class="table text-nowrap mb-0 align-middle" id="example">
+        <thead class="text-dark fs-6">
+          <tr>
+            <th class="border-bottom-0" style="width: 10%;">
+              <h6 class="fw-semibold mb-0">Full Name</h6>
+            </th>
+            <th class="border-bottom-0" style="width: 30%;">
+              <h6 class="fw-semibold mb-0">Course Name</h6>
+            </th>
+            <th class="border-bottom-0" style="width: 30%;">
+              <h6 class="fw-semibold mb-0">Session Name</h6>
+            </th>
+            <th class="border-bottom-0" style="width: 20%;">
+              <h6 class="fw-semibold mb-0">Reservation Status</h6>
+            </th>
+            <th class="border-bottom-0" style="width: 30%;">
+              <h6 class="fw-semibold mb-0">Reservation Date</h6>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reservation of filteredReservations | slice:0:3">
+            <td class="border-bottom-0">
+              <h5 class="fw-semibold mb-0">{{ reservation.user_Full_Name }}</h5>
+            </td>
+            <td class="border-bottom-0">
+              <h5 class="fw-semibold mb-0">{{ reservation.course_Name }}</h5>
+            </td>
+            <td class="border-bottom-0">
+              <h5 class="fw-semibold mb-0">{{ reservation.session_Name }}</h5>
+            </td>
+            <td class="border-bottom-0">
+              <h5 class="fw-semibold mb-0">{{ reservation.reservation_Status }}</h5>
+            </td>
+            <td class="border-bottom-0">
+              <h5 class="fw-semibold mb-0">{{ reservation.reservation_Date | date:'short' }}</h5>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Buttons -->
+      <div class="mt-4">
+        <a routerLink="/trainer/managereservation" class="btn btn-primary me-2">See More</a>
+        <a routerLink="/trainer/managereservation" class="btn btn-secondary">Manage Reservations</a>
+      </div>
+    </div>
+  </div>
+</div>

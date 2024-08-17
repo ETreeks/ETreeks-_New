@@ -26,6 +26,7 @@ import { GetProfileAdminComponent } from './get-profile-admin/get-profile-admin.
 import { SearchtrainerComponent } from './searchtrainer/searchtrainer.component';
 import { FormsModule } from '@angular/forms';
 import { GetTrainerEmailComponent } from './get-trainer-email/get-trainer-email.component';
+import { HeadercomponentComponent } from './headercomponent/headercomponent.component';
 
 
 
@@ -53,7 +54,8 @@ import { GetTrainerEmailComponent } from './get-trainer-email/get-trainer-email.
     ChartDComponent,
     GetProfileAdminComponent,
     SearchtrainerComponent,
-    GetTrainerEmailComponent
+    GetTrainerEmailComponent,
+    HeadercomponentComponent
     
 
   ],

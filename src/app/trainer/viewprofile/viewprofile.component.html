@@ -1,102 +1,100 @@
+<app-sidebartrainer></app-sidebartrainer>
+
 <div class="dashboard-container">
-  <app-sidebartrainer></app-sidebartrainer>
 
   <div class="profile-container">
     <h2>Trainer Profile</h2>
   
     <form (ngSubmit)="updateProfile()" #profileForm="ngForm">
       <div *ngIf="profile">
-        <div class="form-group">
-          <label for="username">Username:</label>
-          <input type="text" id="username" [(ngModel)]="profile.username" name="username" class="form-control" required />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" [(ngModel)]="profile.username" name="username" class="form-control" required />
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" [(ngModel)]="profile.password" name="password" class="form-control" required />
+          </div>
         </div>
 
-        <div class="form-group">
-          <label for="password">Password:</label>
-          <input type="password" id="password" [(ngModel)]="profile.password" name="password" class="form-control" required />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name:</label>
+            <input type="text" id="fname" [(ngModel)]="profile.fname" name="fname" class="form-control" required />
+          </div>
+
+          <div class="form-group">
+            <label for="lname">Last Name:</label>
+            <input type="text" id="lname" [(ngModel)]="profile.lname" name="lname" class="form-control" required />
+          </div>
         </div>
 
-        <div class="form-group">
-          <label for="fname">First Name:</label>
-          <input type="text" id="fname" [(ngModel)]="profile.fname" name="fname" class="form-control" required />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" [(ngModel)]="profile.email" name="email" class="form-control" required />
+          </div>
+
+          <div class="form-group">
+            <label for="username">Image:</label>
+            <input type="file" id="imagename" name="imagename" class="form-control" placeholder="Image" required   [(ngModel)]="profile.imagename" #file (change)="uploadImage(file.files)" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="specialization">Specialization:</label>
+            <input type="text" id="specialization" [(ngModel)]="profile.specialization" name="specialization" class="form-control" />
+          </div>
+
+          <div class="form-group">
+            <label for="gender">Gender:</label>
+            <select id="gender" [(ngModel)]="profile.gender" name="gender" class="form-control">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
         </div>
 
-        <div class="form-group">
-          <label for="lname">Last Name:</label>
-          <input type="text" id="lname" [(ngModel)]="profile.lname" name="lname" class="form-control" required />
-        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" [(ngModel)]="profile.phone" name="phone" class="form-control" />
+          </div>
 
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" [(ngModel)]="profile.email" name="email" class="form-control" required />
-        </div>
-
-        <div class="">
-          <!-- 5:00 -->
-          <label for="username">Imagename:</label>
-          <input type="file" id="imagename" name="imagename" class="form-control" placeholder="Image" required   [(ngModel)]="profile.imagename" #file (change)="uploadImage(file.files)" />
-          
-      </div>
-
-        <!-- <div class="form-group">
-          <label for="image">Profile Image:</label>
-          <input type="file" id="image" (change)="onImageChange($event)" class="form-control" />
-        </div> -->
-
-        <!-- <div *ngIf="imagePreview" class="form-group">
-          <label>Image Preview:</label>
-          <img [src]="imagePreview" alt="Image Preview" class="img-thumbnail" />
-        </div> -->
-
-        <div class="form-group">
-          <label for="specialization">Specialization:</label>
-          <input type="text" id="specialization" [(ngModel)]="profile.specialization" name="specialization" class="form-control" />
-        </div>
-
-        <div class="form-group">
-          <label for="gender">Gender:</label>
-          <select id="gender" [(ngModel)]="profile.gender" name="gender" class="form-control">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="phone">Phone:</label>
-          <input type="tel" id="phone" [(ngModel)]="profile.phone" name="phone" class="form-control" />
-        </div>
-
-        <div class="form-group">
-          <label for="bio_Trainer">Bio:</label>
-          <textarea id="bio_Trainer" [(ngModel)]="profile.bio_Trainer" name="bio_Trainer" class="form-control"></textarea>
+          <div class="form-group">
+            <label for="bio_Trainer">Bio:</label>
+            <textarea id="bio_Trainer" [(ngModel)]="profile.bio_Trainer" name="bio_Trainer" class="form-control"></textarea>
+          </div>
         </div>
 
         <h3>Address</h3>
-        <div class="form-group">
-          <label for="addressId">Address ID:</label>
-          <input type="number" id="addressId" [(ngModel)]="profile.address.addressId" name="addressId" class="form-control" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="latitude">Latitude:</label>
+            <input type="number" id="latitude" [(ngModel)]="profile.address.latitude" name="latitude" class="form-control" step="any" />
+          </div>
+          <div class="form-group">
+            <label for="longitude">Longitude:</label>
+            <input type="number" id="longitude" [(ngModel)]="profile.address.longitude" name="longitude" class="form-control" step="any" />
+          </div>
         </div>
 
-        <div class="form-group">
-          <label for="longitude">Longitude:</label>
-          <input type="number" id="longitude" [(ngModel)]="profile.address.longitude" name="longitude" class="form-control" step="any" />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="country">Country:</label>
+            <input type="text" id="country" [(ngModel)]="profile.address.country" name="country" class="form-control" />
+          </div>
+
+          <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" [(ngModel)]="profile.address.city" name="city" class="form-control" />
+          </div>
         </div>
 
-        <div class="form-group">
-          <label for="latitude">Latitude:</label>
-          <input type="number" id="latitude" [(ngModel)]="profile.address.latitude" name="latitude" class="form-control" step="any" />
-        </div>
-
-        <div class="form-group">
-          <label for="city">City:</label>
-          <input type="text" id="city" [(ngModel)]="profile.address.city" name="city" class="form-control" />
-        </div>
-
-        <div class="form-group">
-          <label for="country">Country:</label>
-          <input type="text" id="country" [(ngModel)]="profile.address.country" name="country" class="form-control" />
-        </div>
+      
 
         <button type="submit" class="btn btn-primary">Update Profile</button>
       </div>

@@ -10,6 +10,7 @@ app-sidebar {
 /* Adjust the main content to account for the sidebar width */
 .main-content {
   margin-left: 250px; /* Match the width of the sidebar */
+  margin-top: -80px;
   padding: 20px; /* Add padding around the main content */
 }
 

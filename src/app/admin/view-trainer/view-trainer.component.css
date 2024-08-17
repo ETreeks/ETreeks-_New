@@ -1,33 +1,42 @@
-h6 {
-    font-size: 1.10rem; 
-    color: cornflowerblue;
-  }
-
-  h5 {
-    font-size: .90rem; 
-  }
-
-/* Adjust the main content to account for the sidebar width */
-.main-content {
-  margin-left: 250px; /* Match the width of the sidebar */
-  padding: 20px; /* Add padding around the main content */
+/* Adjusted Header Styling */
+h2 {
+  font-family: 'Roboto', sans-serif;
+  color: cornflowerblue; /* Changed color to blue */
+  font-weight: 700;
+  margin-bottom: 10px; /* Reduced margin-bottom */
 }
 
-/* Container Styling */
+/* Increased Table Size */
+.table.table-lg th, .table.table-lg td {
+  padding: 16px; /* Increase padding for a larger table size */
+}
+
+.table.table-lg img {
+  max-width: 150px; /* Adjust image size within the table */
+}
+
+/* Reduced Space Between Header and Button */
 .search-trainer {
   max-width: 900px;
   margin: 0 auto;
+  padding: 10px 20px; /* Reduced padding */
+}
+
+/* Existing Styles */
+h6.mb-4 {
+  font-size: 1.10rem; 
+  color: cornflowerblue;
+}
+
+h5 {
+  font-size: .90rem; 
+}
+
+.main-content {
+  margin-left: 250px;
   padding: 20px;
 }
 
-/* Header Styling */
-h2 {
-  font-family: 'Roboto', sans-serif;
-  color: #333;
-  font-weight: 700;
-}
-
-/* Form Styling */
 .form-group {
   margin-bottom: 20px;
 }
@@ -57,7 +66,6 @@ input.form-control {
   color: #fff;
 }
 
-/* Results Section */
 .results {
   margin-top: 20px;
 }
@@ -87,36 +95,31 @@ input.form-control {
   font-weight: 700;
 }
 
-/* No Results Message */
-.text-center {
-  text-align: center;
-}
-
 .text-center p {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   color: #6c757d;
 }
 
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .table thead th {
-    background-color: #f8f9fa;
-    color: #343a40;
-  }
-  
-  .table th, .table td {
-    padding: 0.75rem;
-    border: 1px solid #dee2e6;
-  }
-  
-  .table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .table tbody tr:hover {
-    background-color: #9bc3eb;
-  }
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead th {
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+
+.table th, .table td {
+  padding: 0.75rem;
+  border: 1px solid #dee2e6;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table tbody tr:hover {
+  background-color: #9bc3eb;
+}

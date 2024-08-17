@@ -1,67 +1,72 @@
 .dashboard-container {
   display: flex;
   padding: 20px;
-  background-color: #f9f9f9; /* Light background for the entire dashboard */
+position: center;
+margin-left: 160px;
+  background-color: #f9f9f9;
 }
 
 app-sidebartrainer {
-  width: 250px; /* Adjust as needed */
-  flex-shrink: 0; /* Prevent sidebar from shrinking */
+  width: 250px;
+  flex-shrink: 0;
 }
 
 .profile-container {
-  flex: 1; /* Take up the remaining space */
+  flex: 1;
   padding: 20px;
-  background-color: #ffffff; /* White background for the profile container */
-  border-radius: 8px; /* Rounded corners for the profile container */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-  max-width: 600px; /* Limit the width for a smaller design */
-  margin: 0 auto; /* Center the profile container horizontally */
-  background: #f2f2f2; /* Light grey background for the profile container */
-  border: 1px solid #ddd; /* Optional border to add more definition */
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 800px; /* Wider width for better layout */
+  margin: 0 auto;
+  background: #f2f2f2;
+  border: 1px solid #ddd;
 }
 
 .profile-header {
   text-align: center;
-  color: #333; /* Dark text color for the header */
-  font-size: 24px; /* Smaller font size for the header */
-  margin-bottom: 20px; /* Space below the header */
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
-.profile-form {
+.form-row {
   display: flex;
-  flex-direction: column;
-  gap: 10px; /* Reduced space between form groups */
+  flex-wrap: wrap;
+  gap: 20px; /* Adjust gap between rows */
+  margin-bottom: 20px; /* Add space below rows */
 }
 
 .form-group {
-  margin-bottom: 10px; /* Reduced margin below each form group */
+  flex: 1;
+  min-width: 200px; /* Adjust minimum width for better responsiveness */
+  margin-bottom: 10px;
 }
 
 .form-control {
   width: 100%;
-  padding: 8px; /* Reduced padding for smaller input fields */
-  border: 1px solid #000000;
+  padding: 12px; /* Adjust padding for better spacing */
+  border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 14px; /* Smaller font size for input fields */
-  background-color: #fcb899; /* White background for input fields */
+  font-size: 16px; /* Adjust font size for readability */
+  background-color: #fff;
 }
 
 .form-control:focus {
-  border-color: #ff6600; /* Orange border on focus */
+  border-color: #ff6600;
   outline: none;
 }
 
 .btn-primary {
-  background-color: #ff6600; /* Orange background */
+  background-color: #ff6600;
   border: none;
   color: white;
-  padding: 8px 16px; /* Reduced padding for a smaller button */
+  padding: 12px 20px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 14px; /* Smaller font size for the button */
+  font-size: 16px;
 }
 
 .btn-primary:hover {
-  background-color: #e65c00; /* Darker orange on hover */
+  background-color: #e65c00;
 }

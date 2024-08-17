@@ -28,6 +28,7 @@ import { LecturerequestComponent } from './lecturerequest/lecturerequest.compone
 import { CreateCourseSessionComponent } from './create-course-session/create-course-session.component';
 import { CourseSessionComponent } from './course-session/course-session.component';
 import { MapComponent } from './map/map.component';
+import { ReservationTableComponent } from './reservation-table/reservation-table.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { MapComponent } from './map/map.component';
     LecturerequestComponent,
     CreateCourseSessionComponent,
     CourseSessionComponent,
-    MapComponent
+    MapComponent,
+    ReservationTableComponent
   ],
   imports: [
     CommonModule,
