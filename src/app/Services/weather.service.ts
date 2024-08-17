@@ -6,7 +6,7 @@
 // })
 // export class WeatherService {
 
-//   private apiKey = `139e302e0630e04e2f1212fa055c313f`;
+//   private apiKey = ``;
 //   constructor(private http: HttpClient) { }
 
 //   // getWeatherByCityName(cityName: string) {
@@ -25,7 +25,7 @@ import { HttpClient } from '@angular/common/http';
  providedIn: 'root'
 })
 export class WeatherService {
- private apiKey = `139e302e0630e04e2f1212fa055c313f`;  // أدخل مفتاح API الخاص بك هنا
+ private apiKey = ``;  
  constructor(private http: HttpClient) { }
  getWeatherByCoordinates(lat: number, lon: number) {
    return this.http.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${this.apiKey}`);
