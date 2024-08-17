@@ -4,7 +4,8 @@
   <div class="row">
     <div class="col-md-6">
       <div class="container">
-        <app-trainercard *ngFor="let obj of a.viewT" [Tobject]="obj" (locationRequested)="viewLocation($event)"></app-trainercard>
+        <!-- <app-trainercard *ngFor="let obj of a.viewT" [Tobject]="obj" (locationRequested)="viewLocation($event)"></app-trainercard> -->
+        <app-trainercard *ngFor="let obj of home.viewT2" [Tobject]="obj" (locationRequested)="viewLocation($event)"></app-trainercard>
     </div>
     </div>
 

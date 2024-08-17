@@ -5,6 +5,7 @@ import { AddresssDto } from 'src/Interface/AddresssDto';
 import { Map, tileLayer, marker, Marker } from 'leaflet';
 import { ToastrService } from 'ngx-toastr';
 import { AddressStudentDto } from 'src/Interface/AddressStudentDto';
+import { HomeService } from 'src/app/Services/home.service';
 
 @Component({
   selector: 'app-viewteacherstd',
@@ -16,10 +17,11 @@ export class ViewteacherstdComponent implements OnInit {
   currentMarker?: Marker;
   selectedAddress: AddressStudentDto | null = null;  
 
-  constructor(public a: AdminService, private router: Router, private toastr: ToastrService) { }
+  constructor(public home :HomeService,public a: AdminService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    this.a.DisplayAllTrainers();
+    //this.a.DisplayAllTrainers();
+    this.home.DisplayAllAcceptedTrainers();
     this.initMap();
   }
 
