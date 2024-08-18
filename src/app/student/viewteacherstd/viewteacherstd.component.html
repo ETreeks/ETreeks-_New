@@ -1,19 +1,17 @@
 <app-studentnavbar></app-studentnavbar>
 
 <div class="container mt-4">
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="container">
-        <!-- <app-trainercard *ngFor="let obj of a.viewT" [Tobject]="obj" (locationRequested)="viewLocation($event)"></app-trainercard> -->
-        <app-trainercard *ngFor="let obj of home.viewT2" [Tobject]="obj" (locationRequested)="viewLocation($event)"></app-trainercard>
-    </div>
-    </div>
-
-    <div class="col-md-6">
-      <div id="map" style="height: 500px; width: 100%;"></div>
+        <div class="row justify-content-center">
+          <app-trainercard *ngFor="let obj of home.viewT2" [Tobject]="obj" (locationRequested)="viewLocation(obj.id)"></app-trainercard>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <app-footer></app-footer>
+
 

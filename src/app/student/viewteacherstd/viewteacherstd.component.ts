@@ -6,6 +6,8 @@ import { Map, tileLayer, marker, Marker } from 'leaflet';
 import { ToastrService } from 'ngx-toastr';
 import { AddressStudentDto } from 'src/Interface/AddressStudentDto';
 import { HomeService } from 'src/app/Services/home.service';
+import { MapDialogComponent } from '../map-dialog/map-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-viewteacherstd',
@@ -17,7 +19,7 @@ export class ViewteacherstdComponent implements OnInit {
   currentMarker?: Marker;
   selectedAddress: AddressStudentDto | null = null;  
 
-  constructor(public home :HomeService,public a: AdminService, private router: Router, private toastr: ToastrService) { }
+  constructor(public home :HomeService,public a: AdminService, private router: Router, private toastr: ToastrService ,private dialog: MatDialog) { }
 
   ngOnInit(): void {
     //this.a.DisplayAllTrainers();
@@ -38,30 +40,18 @@ export class ViewteacherstdComponent implements OnInit {
     }).addTo(this.map);
   }
 
-  // Method to view the location of a trainer
   viewLocation(trainerId: number): void {
     this.a.getTrainerAddress(trainerId).subscribe(
       (address: AddressStudentDto) => {
-        this.selectedAddress = address;
+        const dialogRef = this.dialog.open(MapDialogComponent, {
+          width: '600px',
+          height: '600px'
+        });
   
-        // Remove the old marker if it exists
-        if (this.currentMarker) {
-          this.map.removeLayer(this.currentMarker);
-        }
-  
-        // Add the new marker to the map with formatted popup content
-        this.currentMarker = marker([address.latitude, address.longitude]).addTo(this.map)
-          .bindPopup(`
-            <b>Location Details:</b><br>
-            Latitude: ${address.latitude}<br>
-            Longitude: ${address.longitude}<br>
-            City: ${address.city}<br>
-            Country: ${address.country}
-          `)
-          .openPopup();
-  
-        // Center the map on the selected location
-        this.map.setView([address.latitude, address.longitude], 13);
+        // Set the marker once the dialog is opened and the map is ready
+        dialogRef.afterOpened().subscribe(() => {
+          dialogRef.componentInstance.setMarker(address);
+        });
       },
       error => {
         console.error('Error fetching address', error);

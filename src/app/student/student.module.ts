@@ -27,6 +27,7 @@ import { WeatherComponent } from './weather/weather.component';
 import { HistoryComponent } from './history/history.component';
 import { ShowsessionComponent } from './showsession/showsession.component';
 import { MapStudentComponent } from './map-student/map-student.component';
+import { MapDialogComponent } from './map-dialog/map-dialog.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { MapStudentComponent } from './map-student/map-student.component';
     HistoryComponent,
     ShowsessionComponent,
     MapStudentComponent,
+    MapDialogComponent,
   ],
   imports: [
     CommonModule,
