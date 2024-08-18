@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AdminService } from 'src/app/Services/admin.service';
 import { MainService } from 'src/app/Services/main.service';
 import { CreatecourseComponent } from '../createcourse/createcourse.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-managecourse',
@@ -11,7 +12,7 @@ import { CreatecourseComponent } from '../createcourse/createcourse.component';
   styleUrls: ['./managecourse.component.css']
 })
 export class ManagecourseComponent implements OnInit {
-  constructor(public mc: MainService, public dialog: MatDialog , public A:AdminService) { }
+  constructor(public mc: MainService, public dialog: MatDialog , public A:AdminService ,private router: Router) { }
   @ViewChild('deleteDailog') callDeleteDailog!: TemplateRef<any>;
 
   
@@ -105,6 +106,11 @@ export class ManagecourseComponent implements OnInit {
        this.mc.uploadAttachmenet(formData);
    
      }
+
+     navigateToCourseSession(): void {
+      this.router.navigate(['/CourseSession']);
+    }
+ 
      
 
 }
