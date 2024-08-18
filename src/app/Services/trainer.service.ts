@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ProfileTrainerDTO } from 'src/app/dtos/profile-trainer.dto'; // Adjust path as needed
 import { AddresssDto } from 'src/Interface/AddresssDto';
+import { CourseSession } from 'src/Interface/CourseSession ';
 
 
 @Injectable({
@@ -148,52 +149,25 @@ updateProfile(profile: ProfileTrainerDTO): Observable<void> {
 }
 
 //---------------------------------------------------
-getAllCourseSession(){
-  this.http.get('https://localhost:7281/api/CourseSession').subscribe(res=>{
-    this.courseSession= res; 
 
-  }, 
-err=>{
-  console.log("error");
-  console.log(err.status);
-  console.log(err.message);
-
-})
+private CoursebaseUrl = 'https://localhost:7281/api/CourseSession';
+deleteCourseSession(id: number): Observable<void> {
+  return this.http.delete<void>(`${this.CoursebaseUrl}/${id}`);
 }
 
-DeleteCourseSession(id:number){
-  this.http.delete(`https://localhost:7281/api/CourseSession/${id}`).subscribe((res)=>{
-    console.log("Deleted");
-    
-  },err=>{
-    console.log("Error");
-    
-  })
-  window.location.reload(); 
-
+createCourseSession(body: any): Observable<void> {
+  return this.http.post<void>(this.CoursebaseUrl, body);
 }
 
-createCourseSession(body:any){
-this.http.post('https://localhost:7281/api/CourseSession',body).subscribe((resp)=>{
-  console.log('Created');
-  
-},err=>{
-  console.log('Error');
-  
-})
-window.location.reload(); 
-
+updateCourseSession(body: any): Observable<void> {
+  return this.http.put<void>(this.CoursebaseUrl, body);
 }
 
-updateCourseSession(body:any){
-this.http.put('https://localhost:7281/api/CourseSession',body).subscribe((reap)=>{
-  console.log('Updated');
-  
-},err=>{
-  console.log('Error');
-  
-})
+private getSessionsByCourseUrl = 'https:localhost:7281/api/Course' 
 
+
+getSessionsByCourse(courseId: number): Observable<CourseSession[]> {
+  return this.http.get<CourseSession[]>(`${this.getSessionsByCourseUrl}/${courseId}/sessions`);
 }
 
 

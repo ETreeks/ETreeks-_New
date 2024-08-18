@@ -1,109 +1,89 @@
 <app-sidebartrainer></app-sidebartrainer>
 
 <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
-data-sidebar-position="fixed" data-header-position="fixed">
-<div class="body-wrapper">
+  data-sidebar-position="fixed" data-header-position="fixed">
+  <div class="body-wrapper">
     <div class="container-fluid">
-      <!-- <button mat-button (click)="openCreateCourseDailog()" type="button" >Create New</button> -->
+      <input type="text" [(ngModel)]="_filetrText" class="search-input border border-dark" placeholder="Search for the course name">
       
-      
-      <input type="text" [(ngModel)]="_filetrText" class="search-input border border-dark" placeholder=" Search for the course name">
-
-            <div class="card w-100 border border-dark">
-              <button class="btn btn-success" (click)="openCreateCourseDailog()" type="button" >Create New</button>
-              <div class="card-body p-6">
-                <h6 class="card-title fw-semibold mb-6">All Courses</h6>
-                <div class="table-responsive">
-                  <table class="table text-nowrap mb-0 align-middle">
-                    <thead class="text-dark fs-6">
-                      <tr>
-                        <th class="border-bottom-0" style="width: 20%;">
-                          <h6 class="fw-semibold mb-0">Name</h6>
-                        </th>
-                      
-                       
-                          <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">acceptedStatus</h6>
-                          </th>
-                          <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">price</h6>
-                          </th>
-                          <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">passmark</h6>
-                          </th>
-                          <th class="border-bottom-0">
-                            <h6 class="fw-semibold mb-0">imagename</h6>
-                          </th>
-                          <th class="border-bottom-0" style="width: 30%;">
-                            <h6 class="fw-semibold mb-0">Created Date</h6>
-                          </th>
-                         <th>
-                            Operation
-                        </th> 
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <!-- <tr *ngFor="let course of mc.courses"> -->
-                        <tr *ngFor="let course of mc.courses | coursesearch:_filetrText">
-                        <td class="border-bottom-0">
-                            <h5 class="fw-semibold mb-1">{{course.name}}</h5>
-                            <!-- <span class="fw-normal">Web Designer</span>                           -->
-                        </td>
-                     
-                       
-                          <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">{{course.accepted_Status}}</p>
-                          </td>
-                          <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">{{course.price}}</p>
-                          </td>
-                          <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">{{course.passmark}}</p>
-                          </td>
-                          <!-- <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">{{course.imagename}}</p>
-                          </td> -->
-                          <td>
-                            <!-- <p class="mb-0 fw-normal">{{course.imagename}}</p>   -->
-                              <img src="../../../assets/Images/{{course.imagename}}" style="width: 100%;"> 
-                          </td>
-                          <td class="border-bottom-0">
-                            <p class="mb-0 fw-normal">{{course.createddate | date:'shortDate'}}</p>
-                          </td>
-                
-                          <td>
-                            <button  class="btn btn-warning me-2" (click)="openUpdateDailog(course)"> Update </button>
-                          
-                           <button class="btn btn-danger me-2" (click)="openDeleteDailog(course.id)"> Delete </button>
-                           <button class="btn btn-primary" routerLink="/trainer/CourseSession" type="button">
-                            Manage Sessions
-                          </button>
-
-
-                           
-                          </td>
-                           
-                           
-                      </tr>
-                      
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-       
+      <div class="card w-100 border border-dark">
+        <button class="btn btn-success" (click)="openCreateCourseDailog()" type="button">Create New</button>
+        <div class="card-body p-6">
+          <h6 class="card-title fw-semibold mb-6">All Courses</h6>
+          <div class="table-responsive">
+            <table class="table text-nowrap mb-0 align-middle">
+              <thead class="text-dark fs-6">
+                <tr>
+                  <th class="border-bottom-0" style="width: 20%;">
+                    <h6 class="fw-semibold mb-0">Name</h6>
+                  </th>
+                  <th class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">Accepted Status</h6>
+                  </th>
+                  <th class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">Price</h6>
+                  </th>
+                  <th class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">Passmark</h6>
+                  </th>
+                  <th class="border-bottom-0">
+                    <h6 class="fw-semibold mb-0">Image</h6>
+                  </th>
+                  <th class="border-bottom-0" style="width: 30%;">
+                    <h6 class="fw-semibold mb-0">Created Date</h6>
+                  </th>
+                  <th>
+                    Operation
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let course of mc.courses | coursesearch:_filetrText">
+                  <td class="border-bottom-0">
+                    <h5 class="fw-semibold mb-1">{{course.name}}</h5>
+                  </td>
+                  <td class="border-bottom-0">
+                    <p class="mb-0 fw-normal">{{course.accepted_Status}}</p>
+                  </td>
+                  <td class="border-bottom-0">
+                    <p class="mb-0 fw-normal">{{course.price}}</p>
+                  </td>
+                  <td class="border-bottom-0">
+                    <p class="mb-0 fw-normal">{{course.passmark}}</p>
+                  </td>
+                  <td>
+                    <img src="../../../assets/Images/{{course.imagename}}" style="width: 100%;">
+                  </td>
+                  <td class="border-bottom-0">
+                    <p class="mb-0 fw-normal">{{course.createddate | date:'shortDate'}}</p>
+                  </td>
+                  <td>
+                    <button class="btn btn-warning me-2" (click)="openUpdateDailog(course)">Update</button>
+                    <button class="btn btn-danger me-2" (click)="openDeleteDailog(course.id)">Delete</button>
+                    <button class="btn btn-primary" (click)="navigateToCourseSession(course.id)" type="button">
+                      Manage Sessions
+                    </button>
+                    
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-
-<ng-template #deleteDailog>          
-  <h1 mat-dialog-title>Delete course</h1>
-  <div mat-dialog-content>
-    Would you like to delete this course?
   </div>
-  <div mat-dialog-actions>
-    <button mat-button mat-dialog-close="no" class="btn btn-danger me-2">No</button>
-    <button mat-button mat-dialog-close="yes" class="btn btn-success" cdkFocusInitial>Yes</button>
-  </div></ng-template>
+
+  <ng-template #deleteDailog>          
+    <h1 mat-dialog-title>Delete course</h1>
+    <div mat-dialog-content>
+      Would you like to delete this course?
+    </div>
+    <div mat-dialog-actions>
+      <button mat-button mat-dialog-close="no" class="btn btn-danger me-2">No</button>
+      <button mat-button mat-dialog-close="yes" class="btn btn-success" cdkFocusInitial>Yes</button>
+    </div>
+  </ng-template>
 
   <ng-template #updateDialog>
     <h2 mat-dialog-title>Update Course</h2>
@@ -117,24 +97,21 @@ data-sidebar-position="fixed" data-header-position="fixed">
           </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <mat-label>price</mat-label>
+          <mat-label>Price</mat-label>
           <input type="text" matInput formControlName="price" [(ngModel)]="pData.price">
         </mat-form-field>
         <mat-form-field class="example-full-width">
-          <mat-label>passmark</mat-label>
+          <mat-label>Passmark</mat-label>
           <input type="text" matInput formControlName="passmark" [(ngModel)]="pData.passmark">
         </mat-form-field>
-
         <mat-form-field class="example-full-width">
           <mat-label>Category</mat-label>
-
-            <mat-select formControlName="category_Id" [(ngModel)]="pData.category_Id">
-            <mat-option *ngFor="let category of categories" [value]="category.id" >
+          <mat-select formControlName="category_Id" [(ngModel)]="pData.category_Id">
+            <mat-option *ngFor="let category of categories" [value]="category.id">
               {{ category.name }}
             </mat-option>
           </mat-select>
         </mat-form-field>
-
         <div>
           <input type="file" formControlName="imagename" #file (change)="uploadImage(file.files)">
         </div>
@@ -145,13 +122,4 @@ data-sidebar-position="fixed" data-header-position="fixed">
       <button mat-button [mat-dialog-close]="true" class="btn btn-success" cdkFocusInitial (click)="Update()">Update</button>
     </mat-dialog-actions>
   </ng-template>
-  
-
-  
-
-
-
-
-
-
-
+</div>
