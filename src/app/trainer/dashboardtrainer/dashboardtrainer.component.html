@@ -1,3 +1,4 @@
+
 <div class="dashboard-wrapper">
   <!-- Header with profile, location, and logout buttons -->
   <header class="dashboard-header">
@@ -28,20 +29,6 @@
       <a routerLink="/trainer/managecourse" class="nav-link">Manage Courses</a>
     </div>
 -->
-    <!-- Recent Activities -->
-    <div class="recent-activities">
-      <h2>Recent Activities</h2>
-      <ul>
-        <li *ngFor="let activity of recentActivities">{{ activity.description }} on {{ activity.date }}.</li>
-      </ul>
-    </div>
 
-    <!-- Upcoming Sessions/Courses -->
-    <div class="upcoming-sessions">
-      <h2>Upcoming Sessions/Courses</h2>
-      <ul>
-        <li *ngFor="let session of upcomingSessions">{{ session.name }} on {{ session.date }}.</li>
-      </ul>
-    </div>
   </div>
 </div>
